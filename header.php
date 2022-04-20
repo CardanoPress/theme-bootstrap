@@ -54,6 +54,10 @@
 					<nav class="sitenav">
 						<?php cardanopress_bootstrap_primary_menu(); ?>
 					</nav>
+
+					<template x-if="!isConnected">
+						<?php cardanoPress()->template( 'part/modal-trigger' ); ?>
+					</template>
 				</div>
 			</div><!-- .navbar -->
 		</header><!-- .site-header -->
