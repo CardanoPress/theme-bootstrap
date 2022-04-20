@@ -12,13 +12,15 @@
 ?>
 
 <div class="modal-body">
-    <template x-for="(type, index) in supportedWallets" :key="index">
-        <button class="btn btn-primary" x-on:click.prevent="walletConnect(type)" x-bind:disabled="isDisabled(type)">
-            <span x-text="type"></span>
+	<div class="d-grid gap-2">
+		<template x-for="(type, index) in supportedWallets" :key="index">
+			<button class="btn btn-outline-primary" x-on:click.prevent="walletConnect(type)" x-bind:disabled="isDisabled(type)">
+				<span x-text="type"></span>
 
-            <template x-if="!walletAvailable(type)">
-				<small class="d-block fst-italic">(Not available)</small>
-            </template>
-        </button>
-    </template>
+				<template x-if="!walletAvailable(type)">
+					<small class="d-block fst-italic">(Not available)</small>
+				</template>
+			</button>
+		</template>
+	</div>
 </div>
