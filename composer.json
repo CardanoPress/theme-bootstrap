@@ -26,7 +26,8 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "php": "^7.3|^8.0"
+    "php": "^7.3|^8.0",
+    "chillerlan/php-qrcode": "^4.3"
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",

@@ -47,6 +47,7 @@ require_once 'cardanopress-bootstrap/cardanopress-bootstrap.php';
  * ==================================================
  */
 
+require_once 'vendor/autoload.php';
 require_once 'setup/features.php';
 require_once 'setup/navigations.php';
 require_once 'setup/widgets.php';
