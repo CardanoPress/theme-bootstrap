@@ -1,0 +1,64 @@
+# ------------------------------
+# .gitignore Defaults
+# ------------------------------
+
+# OS generated files
+._*
+.Spotlight-V100
+.Trashes
+Desktop.ini
+ehthumbs.db
+Thumbs.db
+$RECYCLE.BIN/
+
+# Temp files
+*.tmp
+*.bak
+*.swp
+
+# Archives
+*.7z
+*.bz2
+*.cab
+*.dmg
+*.jar
+*.gz
+*.iso
+*.rar
+*.tar
+*.tgz
+*.zip
+
+# Compiled and Executables
+*.bin
+*.dll
+*.lnk
+*.msi
+*.exe
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Dependencies
+node_modules/
+bower_components/
+vendor/
+
+# Editor files
+*.sublime-workspace
+sftp-config.json
+.history/
+.idea/
+.vscode/
+
+# Server files
+.htaccess
+cgi-bin/
+error_log
+/google*.html
+php.ini
+php_errorlog
+robots.txt
+sitemap.xml
