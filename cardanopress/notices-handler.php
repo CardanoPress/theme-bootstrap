@@ -11,8 +11,8 @@
 
 ?>
 
-<div class="fixed inset-0 flex flex-col items-end justify-start pointer-events-none z-50">
-    <div class="max-w-xs m-6 flex flex-col items-end">
+<div class="position-fixed top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-end justify-content-start pe-none" style="z-index: 1060;">
+    <div class="m-6 d-flex flex-column align-items-end" style="max-width: 320px;">
         <template x-for="notice of $store.toastNotification.list" :key="notice.id">
             <div
                 x-show="$store.toastNotification.visible.includes(notice)"

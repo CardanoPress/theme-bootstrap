@@ -10,11 +10,12 @@
  */
 
 ?>
-<div class="relative z-10">
+<div class="dropdown">
     <?php cardanoPress()->template('part/menu-button'); ?>
 
     <ul
-        class="list-none pl-0 mt-2 w-40 py-1 bg-white absolute shadow rounded"
+        class="dropdown-menu"
+    	x-init="$watch('openDropdown', value => value ? $el.classList.add('show') : $el.classList.remove('show'))"
         x-show="openDropdown"
         x-transition:enter="transition ease-out duration-150 origin-top"
         x-transition:enter-start="transform opacity-0 scale-y-0"

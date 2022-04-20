@@ -30,6 +30,6 @@ if (empty($list)) {
 
 <?php foreach ($list as $label => $link) : ?>
     <li>
-        <a href="<?php echo $link; ?>" class='block py-1 px-2'><?php echo $label; ?></a>
+        <a href="<?php echo $link; ?>" class="dropdown-item"><?php echo $label; ?></a>
     </li>
 <?php endforeach; ?>

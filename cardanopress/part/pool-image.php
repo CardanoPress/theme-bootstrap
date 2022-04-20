@@ -15,20 +15,20 @@ if (empty($pool)) {
 
 ?>
 
-<div class="relative w-16 h-16 inline-block m-2">
-    <div class="absolute inset-0">
+<div class="position-relative d-inline-block m-2" style="width: 64px; height: 64px;">
+    <div class="position-absolute top-0 bottom-0 start-0 end-0">
         <?php if ('mainnet' === cardanoPress()->userProfile()->connectedNetwork()) : ?>
             <img
                 src="https://static.adapools.org/pool_logo/<?php echo $pool['hex']; ?>.png"
                 alt="<?php echo $pool['name']; ?>"
-                class="w-full"
+                class="w-100"
             >
         <?php else : ?>
-            <div class="h-full">
-                <div class="w-full h-full inline-flex justify-center items-center rounded-full bg-gray-500">
+            <div class="h-100">
+                <div class="w-100 h-100 d-inline-flex justify-content-center align-items-center rounded-circle bg-secondary">
                     <div
                         role="image"
-                        class="text-3xl font-medium uppercase"
+                        class="display-6 text-uppercase"
                         aria-label="<?php echo $pool['name']; ?>"
                     >
                         <?php echo $pool['name'][0]; ?>

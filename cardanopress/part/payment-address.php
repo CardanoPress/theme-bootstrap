@@ -11,7 +11,7 @@
 
 ?>
 
-<div class="flex">
-    <input x-bind:value="paymentAddress" type="text" class="w-full" readonly disabled>
-    <button @click.prevent="clipboardValue(paymentAddress)">Copy</button>
+<div class="input-group">
+    <input x-bind:value="paymentAddress" type="text" class="form-control" readonly disabled>
+    <button class="btn btn-outline-secondary" @click.prevent="clipboardValue(paymentAddress)">Copy</button>
 </div>

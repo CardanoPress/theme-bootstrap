@@ -23,20 +23,22 @@ if (! $source && ! $label) {
 
 ?>
 
-<div class="relative w-full mb-4" style="padding-top: 100%">
-    <div class="absolute inset-0">
+<div class="position-relative w-100" style="padding-top: 100%">
+    <div class="position-absolute top-0 bottom-0 start-0 end-0">
         <?php if ($source) : ?>
-            <img
-                src="<?php echo $source; ?>"
-                alt="<?php echo $label; ?>"
-                class="w-full"
-            >
+			<div class="card-img-top">
+				<img
+					src="<?php echo $source; ?>"
+					alt="<?php echo $label; ?>"
+					class="w-100"
+				>
+			</div>
         <?php else : ?>
-            <div class="h-full p-4">
-                <div class="w-full h-full inline-flex justify-center items-center rounded-full bg-gray-500">
+            <div class="h-100 p-4">
+                <div class="w-100 h-100 d-inline-flex justify-content-center align-items-center rounded-circle bg-secondary">
                     <div
                         role="image"
-                        class="text-9xl font-medium uppercase"
+                        class="display-1 text-uppercase"
                         aria-label="<?php echo $label; ?>"
                     >
                         <?php echo $label[0]; ?>

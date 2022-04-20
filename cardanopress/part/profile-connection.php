@@ -25,7 +25,7 @@ $userProfile = cardanoPress()->userProfile();
     </span>
 </h3>
 
-<table class="w-full table-auto border-collapse">
+<table class="table table-striped">
     <tbody>
         <tr>
             <th>Extension</th>

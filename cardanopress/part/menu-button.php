@@ -22,6 +22,7 @@ if (empty($text)) {
 
 ?>
 
-<button @click="openDropdown = !openDropdown">
+<button @click="openDropdown = !openDropdown" class="btn btn-primary dropdown-toggle"
+>
     <?php echo $text; ?>
 </button>

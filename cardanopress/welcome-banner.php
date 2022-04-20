@@ -15,7 +15,7 @@ $trimmedAddress = substr($trimmedAddress, 0, 2) . '...' . substr($trimmedAddress
 
 ?>
 
-<div class="flex items-center justify-between pb-6">
+<div class="d-flex align-items-center justify-content-between pb-6">
     <h2 class="mb-0 mr-2">
         Welcome <span class="italic"><?php echo $userProfile->getData('user_login'); ?></span>!
     </h2>

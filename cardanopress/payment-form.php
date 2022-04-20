@@ -14,7 +14,7 @@ $paymentAmount = cardanoPress()->option('payment_amount');
 ?>
 
 <form x-data='paymentForm' data-amount="<?php echo $paymentAmount; ?>">
-    <div class='py-6'>
+    <div class='py-3'>
         <h2>Amount: <span><?php echo $paymentAmount; ?></span> ADA</h2>
 
         <p class='text-sm italic'>
@@ -32,17 +32,17 @@ $paymentAmount = cardanoPress()->option('payment_amount');
         </p>
     </div>
 
-    <div class='py-6'>
+    <div class='py-3'>
         <?php cardanoPress()->template('part/payment-button'); ?>
     </div>
 
     <template x-if='!isVerified'>
-        <div class="py-6">
+        <div class="py-3">
             <?php cardanoPress()->template('part/payment-recaptcha'); ?>
         </div>
     </template>
 
-    <div class='py-6'>
+    <div class='py-3'>
         <template x-if='!showAddress'>
             <?php cardanoPress()->template('part/payment-toggle'); ?>
         </template>
@@ -53,7 +53,7 @@ $paymentAmount = cardanoPress()->option('payment_amount');
     </div>
 
     <template x-if='transactionHash'>
-        <div class="py-6">
+        <div class="py-3">
             <?php cardanoPress()->template('part/payment-output'); ?>
         </div>
     </template>

@@ -18,7 +18,7 @@ if (empty($pool)) {
 ?>
 
 <h2>
-    <a href="<?php echo $pool['homepage']; ?>" target="_blank" class="inline-flex items-center">
+    <a href="<?php echo $pool['homepage']; ?>" target="_blank" class="d-inline-flex align-items-center">
         <?php cardanoPress()->template('part/pool-image', compact('pool')); ?>
 
         <?php cardanoPress()->template('part/pool-name', compact('pool')); ?>

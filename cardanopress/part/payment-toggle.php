@@ -14,6 +14,7 @@
 <button
     x-on:click.prevent='showAddress = ! showAddress'
     x-bind:disabled="!isReady('reveal')"
+    class="btn btn-primary"
 >
     <span x-text="showAddress ? 'Hide' : 'Reveal'">Reveal</span> Address
 </button>

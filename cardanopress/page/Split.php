@@ -29,12 +29,12 @@ get_header();
             <div class='py-6'>
                 <h2>Fixed Fee: <span><?php echo $fixedFee; ?></span> ADA</h2>
 
-                <p class='text-sm italic'>
+                <p class='fs-5 fst-italic'>
                     <?php cardanoPress()->template('part/payment-lovelace'); ?> Lovelace
                 </p>
 
                 <h2>Current Balance: <span x-text='currentBalance / 1000000'></span> ADA</h2>
-                <p class='text-sm italic'>
+                <p class='fs-5 fst-italic'>
                     <span x-text='currentBalance'></span> Lovelace
                 </p>
             </div>
@@ -43,7 +43,7 @@ get_header();
                 <?php cardanoPress()->template('part/payment-recaptcha'); ?>
             </div>
 
-            <table class="w-full">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Percentage</th>
@@ -56,19 +56,20 @@ get_header();
                 <tbody>
                     <?php for ($i = 1; $i <= 5; $i++) : ?>
                         <tr x-data="splitForm" data-fee="<?php echo $fixedFee; ?>">
-                            <td class="w-1/5">
-                                <input x-model="percentage" type="number" min='0' max='100' class="w-full">
+                            <td>
+                                <input x-model="percentage" type="number" min='0' max='100' class="form-control">
                             </td>
-                            <td class="w-1/2">
-                                <input x-model="address" type="text" class="w-full">
+                            <td class="w-50">
+                                <input x-model="address" type="text" class="form-control">
                             </td>
-                            <td class="w-1/3">
-                                <input x-bind:value='paymentAmount' type="text" class="w-full" readonly disabled>
+                            <td class="w-25">
+                                <input x-bind:value='paymentAmount' type="text" class="form-control" readonly disabled>
                             </td>
-                            <td class="w-1/5">
+                            <td>
                                 <button
                                     x-on:click.prevent='handleSend()'
                                     x-bind:disabled='!isConnected || !isReady()'
+									class="btn btn-primary"
                                 >
                                     Send
                                 </button>
