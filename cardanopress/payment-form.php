@@ -15,41 +15,43 @@ $paymentAmount = cardanoPress()->option('payment_amount');
 
 <form x-data='paymentForm' data-amount="<?php echo $paymentAmount; ?>">
     <div class='py-3'>
-        <h2>Amount: <span><?php echo $paymentAmount; ?></span> ADA</h2>
+        <h2 class="fs-3"><span><?php echo $paymentAmount; ?></span> ADA Per Mint</h2>
 
-        <p class='text-sm italic'>
-            <?php cardanoPress()->template('part/payment-lovelace'); ?> Lovelace
-        </p>
+		<div class="row mb-3">
+			<label for="payment-quantity" class="col-sm-auto col-form-label">Quantity</label>
 
-        <label>
-            Quantity: <?php cardanoPress()->template('part/payment-quantity'); ?>
-        </label>
+			<div class="col-sm">
+				<?php cardanoPress()->template('part/payment-quantity'); ?>
+			</div>
+		</div>
 
-        <h3>Total: <?php cardanoPress()->template('part/payment-total'); ?> ADA</h3>
-
-        <p class='text-sm italic'>
-            <?php cardanoPress()->template('part/payment-total', ['format' => 'lovelace']); ?> Lovelace
-        </p>
+        <h2 class="fs-3">Your Total: <?php cardanoPress()->template('part/payment-total'); ?> ADA</h2>
     </div>
 
-    <div class='py-3'>
-        <?php cardanoPress()->template('part/payment-button'); ?>
-    </div>
-
-    <template x-if='!isVerified'>
-        <div class="py-3">
-            <?php cardanoPress()->template('part/payment-recaptcha'); ?>
-        </div>
-    </template>
+	<hr style="color: #7e55f3;">
 
     <div class='py-3'>
-        <template x-if='!showAddress'>
-            <?php cardanoPress()->template('part/payment-toggle'); ?>
-        </template>
+		<h2 class="fs-3">Make Payment</h2>
 
-        <template x-if='showAddress'>
-            <?php cardanoPress()->template('part/payment-address'); ?>
-        </template>
+		<div class="my-3">
+			<?php cardanoPress()->template('part/payment-button'); ?>
+		</div>
+
+		<p>or reveal payment address</p>
+
+		<template x-if='!isVerified'>
+			<div class="my-3">
+				<?php cardanoPress()->template('part/payment-recaptcha'); ?>
+			</div>
+		</template>
+
+		<template x-if='!showAddress'>
+			<?php cardanoPress()->template('part/payment-toggle'); ?>
+		</template>
+
+		<template x-if='showAddress'>
+			<?php cardanoPress()->template('part/payment-address'); ?>
+		</template>
     </div>
 
     <template x-if='transactionHash'>
@@ -57,4 +59,6 @@ $paymentAmount = cardanoPress()->option('payment_amount');
             <?php cardanoPress()->template('part/payment-output'); ?>
         </div>
     </template>
+
+	<p>Terms and conditions text and links</p>
 </form>

@@ -11,4 +11,4 @@
 
 ?>
 
-<input x-model="quantity" type="number" min="1" class="form-control">
+<input id="payment-quantity" x-model="quantity" type="number" min="1" class="form-control" style="width: 5em;">
