@@ -44,7 +44,7 @@ $RECYCLE.BIN/
 # Dependencies
 node_modules/
 bower_components/
-vendor/
+#vendor/
 
 # Editor files
 *.sublime-workspace
