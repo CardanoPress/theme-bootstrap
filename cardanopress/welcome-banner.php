@@ -10,8 +10,6 @@
  */
 
 $userProfile = cardanoPress()->userProfile();
-$trimmedAddress = str_replace(['addr1', 'addr_test1'], ['', ''], $userProfile->connectedWallet());
-$trimmedAddress = substr($trimmedAddress, 0, 2) . '...' . substr($trimmedAddress, -4);
 
 ?>
 
@@ -19,6 +17,4 @@ $trimmedAddress = substr($trimmedAddress, 0, 2) . '...' . substr($trimmedAddress
     <h2 class="mb-0 mr-2">
         Welcome <span class="italic"><?php echo $userProfile->getData('user_login'); ?></span>!
     </h2>
-
-    <?php cardanoPress()->template('menu-dropdown', compact('trimmedAddress')); ?>
 </div>

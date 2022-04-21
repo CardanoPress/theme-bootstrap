@@ -58,6 +58,8 @@
 					<template x-if="!isConnected">
 						<?php cardanoPress()->template( 'part/modal-trigger' ); ?>
 					</template>
+
+					<?php echo do_shortcode('[cardanopress_template name="menu-dropdown" if="isConnected"]'); ?>
 				</div>
 			</div><!-- .navbar -->
 		</header><!-- .site-header -->
