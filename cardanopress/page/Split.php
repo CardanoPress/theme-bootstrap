@@ -33,15 +33,17 @@ get_header();
                     <?php cardanoPress()->template('part/payment-lovelace'); ?> Lovelace
                 </p>
 
-                <h2>Current Balance: <span x-text='currentBalance / 1000000'></span> ADA</h2>
+                <h2>Current Balance: <?php cardanoPress()->template('part/payment-balance'); ?> ADA</h2>
                 <p class='fs-5 fst-italic'>
-                    <span x-text='currentBalance'></span> Lovelace
+                    <?php cardanoPress()->template('part/payment-balance', ['format' => 'lovelace']); ?> Lovelace
                 </p>
             </div>
 
-            <div class="py-6">
-                <?php cardanoPress()->template('part/payment-recaptcha'); ?>
-            </div>
+            <template x-if='!isVerified'>
+				<div class="py-6">
+					<?php cardanoPress()->template('part/payment-recaptcha'); ?>
+				</div>
+			</template>
 
             <table class="table">
                 <thead>
@@ -83,9 +85,17 @@ get_header();
                 <tfoot>
                     <tr>
                         <td colspan='4'>
-                            <h2>Remaining Balance: <span x-text='remainingBalance / 1000000'></span> ADA</h2>
-                            <p class='text-sm italic'>
-                                <span x-text='remainingBalance'></span> Lovelace
+                            <h2>
+								Remaining Balance: <?php cardanoPress()->template(
+									'part/payment-balance',
+									['type' => 'remaining']
+								); ?> ADA
+							</h2>
+                            <p class='fs-5 fst-italic'>
+                                <?php cardanoPress()->template(
+									'part/payment-balance',
+									['type' => 'remaining', 'format' => 'lovelace']
+								); ?> Lovelace
                             </p>
                         </td>
                     </tr>
