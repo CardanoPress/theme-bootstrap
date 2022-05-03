@@ -13,7 +13,7 @@ if ( ! is_active_sidebar( 'footer' ) && ! is_active_sidebar( 'footer-2' ) && ! i
 
 ?>
 
-<div class="footer">
+<div class="footer py-4 bg-primary text-light">
 	<div class="container">
 		<?php dynamic_sidebar( 'footer' ); ?>
 		<?php dynamic_sidebar( 'footer-2' ); ?>

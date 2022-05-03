@@ -36,6 +36,7 @@ if ( ! function_exists( 'cardanopress_bootstrap_footer_menu' ) ) {
 	function cardanopress_bootstrap_footer_menu() {
 		wp_nav_menu( array(
 			'theme_location' => 'footer',
+			'menu_class'     => 'nav',
 			'depth'          => 1,
 		) );
 	}

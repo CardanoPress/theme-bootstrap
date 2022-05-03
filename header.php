@@ -24,44 +24,30 @@
 
 		<a class="screen-reader-text" href="#site-content"><?php esc_html_e( 'Skip to content', 'cardanopress-bootstrap' ); ?></a>
 
-		<header class="site-header">
-			<div class="branding">
-				<div class="container">
+		<header class="site-header navbar navbar-expand-xl navbar-light">
+			<nav class="container flex-wrap flex-xl-nowrap">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-brand fs-1 fw-bold">
+					<?php bloginfo( 'name' ); ?>
+				</a>
 
-					<?php if ( is_front_page() ) : ?>
-						<h1 class="site-title">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<?php bloginfo( 'name' ); ?>
-							</a>
-						</h1>
-					<?php else : ?>
-						<p class="site-title"><strong>
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<?php bloginfo( 'name' ); ?>
-							</a>
-						</strong></p>
-					<?php endif; ?>
-
-					<p class="tagline">
-						<?php bloginfo( 'description' ); ?>
-					</p>
-
-				</div>
-			</div><!-- .branding -->
-
-			<div class="navbar">
-				<div class="container">
-					<nav class="sitenav">
-						<?php cardanopress_bootstrap_primary_menu(); ?>
-					</nav>
-
-					<template x-if="!isConnected">
-						<?php cardanoPress()->template( 'part/modal-trigger' ); ?>
-					</template>
-
+				<div class="d-xl-none">
+					<?php echo do_shortcode('[cardanopress_template name="part/modal-trigger" if="!isConnected"]'); ?>
 					<?php echo do_shortcode('[cardanopress_template name="menu-dropdown" if="isConnected"]'); ?>
 				</div>
-			</div><!-- .navbar -->
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+					<?php cardanopress_bootstrap_primary_menu(); ?>
+
+					<div class="d-none d-xl-block ms-xl-5">
+						<?php echo do_shortcode('[cardanopress_template name="part/modal-trigger" if="!isConnected"]'); ?>
+						<?php echo do_shortcode('[cardanopress_template name="menu-dropdown" if="isConnected"]'); ?>
+					</div>
+				</div>
+			</nav>
 		</header><!-- .site-header -->
 
 		<div id="site-content" class="site-content">
