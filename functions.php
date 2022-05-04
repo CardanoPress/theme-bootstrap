@@ -62,3 +62,6 @@ require_once 'setup/actions-filters.php';
  */
 
 EUM_Handler::run( __FILE__, 'https://raw.githubusercontent.com/pbwebdev/cardanopress-bootstrap-theme/main/update-data.json' );
+
+add_filter( 'cp-governance-enqueue-bootstrap-style', '__return_false' );
+add_filter( 'cp-governance-enqueue-bootstrap-script', '__return_false' );
