@@ -26,8 +26,8 @@ define( 'CARDANOPRESS_BOOTSTRAP_THEME_PATH',  get_theme_root( CARDANOPRESS_BOOTS
 define( 'CARDANOPRESS_BOOTSTRAP_THEME_DEBUG', true );
 
 define( 'CARDANOPRESS_BOOTSTRAP_THEME_REQUIRES', array(
-	'PHP' => '7.3',
-	'WP'  => '5.6',
+	'PHP' => '7.4',
+	'WP'  => '5.9',
 ) );
 // phpcs:enable
 
