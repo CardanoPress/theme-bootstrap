@@ -17,7 +17,7 @@ if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 				'name'             => 'ThemePlate',
 				'slug'             => 'themeplate',
 				'required'         => true,
-				'source'           => 'https://github.com/kermage/ThemePlate/releases/download/v3.18.0/themeplate.zip',
+				'source'           => 'https://github.com/kermage/ThemePlate/releases/download/v3.18.3/themeplate.zip',
 				'force_activation' => true,
 			),
 			array(
@@ -30,12 +30,12 @@ if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 			array(
 				'name'   => 'CardanoPress - Governance',
 				'slug'   => 'cardanopress-governance',
-				'source' => 'https://github.com/pbwebdev/cardanopress-governance/archive/refs/tags/v0.1.0.zip',
+				'source' => 'https://github.com/pbwebdev/cardanopress-governance/archive/refs/tags/v0.2.0.zip',
 			),
 			array(
 				'name'   => 'Augment Types',
 				'slug'   => 'augment-types',
-				'source' => 'https://github.com/kermage/augment-types/releases/download/v1.11.0/augment-types.zip',
+				'source' => 'https://github.com/kermage/augment-types/releases/download/v1.12.0/augment-types.zip',
 			),
 			array(
 				'name' => 'Enable Media Replace',
