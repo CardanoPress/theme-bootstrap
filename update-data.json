@@ -1,0 +1,14 @@
+{
+  "new_version"    : "0.1.0",
+  "homepage"       : "https://github.com/pbwebdev/cardanopress-bootstrap-theme",
+  "download_link"  : "https://github.com/pbwebdev/cardanopress-bootstrap-theme/archive/refs/tags/v0.1.0.zip",
+  "last_updated"   : "2022-05-04",
+  "author"         : "Gene Alyson Fortunado Torcende",
+  "author_profile" : "https://pbwebdev.com",
+  "requires"       : "5.8.0",
+  "tested"         : "5.9.3",
+  "requires_php"   : "7.4",
+  "sections"       : {
+    "description"  : "<p>A ThemePlate project for CardanoPress Bootstrap.</p>"
+  }
+}

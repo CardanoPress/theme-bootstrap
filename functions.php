@@ -61,3 +61,4 @@ require_once 'setup/actions-filters.php';
  * ==================================================
  */
 
+EUM_Handler::run( __FILE__, 'https://raw.githubusercontent.com/pbwebdev/cardanopress-bootstrap-theme/main/update-data.json' );
