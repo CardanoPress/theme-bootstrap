@@ -27,7 +27,8 @@
   "prefer-stable": true,
   "require": {
     "php": "^7.3|^8.0",
-    "chillerlan/php-qrcode": "^4.3"
+    "chillerlan/php-qrcode": "^4.3",
+    "kermage/external-update-manager": "^2.2"
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",

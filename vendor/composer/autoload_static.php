@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit062c1e25b6d0a256a5e0d75360459486
 {
+    public static $files = array (
+        'e2fb8214a7589690aae8ec82f7aa8973' => __DIR__ . '/..' . '/kermage/external-update-manager/class-external-update-manager.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'c' => 
         array (
