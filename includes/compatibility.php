@@ -33,6 +33,10 @@ function cardanopress_bootstrap_upgrade_message() {
 	);
 }
 
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	WP_CLI::error( cardanopress_bootstrap_upgrade_message() );
+}
+
 function cardanopress_bootstrap_notice() {
 	printf( '<div class="error">%s</div>', cardanopress_bootstrap_upgrade_message() ); // phpcs:ignore WordPress.Security.EscapeOutput
 }
