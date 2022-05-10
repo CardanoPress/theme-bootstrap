@@ -7,7 +7,7 @@
  * @since 0.1.0
  */
 
-require_once CARDANOPRESS_BOOTSTRAP_PLUGIN_PATH . 'includes/google-tracking-codes.php';
+require_once CARDANOPRESS_BOOTSTRAP_THEME_PATH . 'includes/google-tracking-codes.php';
 
 if ( ! function_exists( 'cardanopress_bootstrap_add_ga' ) ) {
 	function cardanopress_bootstrap_add_ga() {

@@ -8,7 +8,7 @@
  */
 
 // TGM Plugin Activation
-require_once CARDANOPRESS_BOOTSTRAP_PLUGIN_PATH . 'includes/class-tgm-plugin-activation.php';
+require_once CARDANOPRESS_BOOTSTRAP_THEME_PATH . 'includes/class-tgm-plugin-activation.php';
 
 if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 	function cardanopress_bootstrap_plugins() {
