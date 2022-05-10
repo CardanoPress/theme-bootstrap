@@ -11,7 +11,9 @@
 
 use chillerlan\QRCode\QRCode;
 
-$qrCode = (new QRCode)->render(cardanoPress()->paymentAddress())
+$paymentAddress = cardanoPress()->paymentAddress();
+
+$qrCode = $paymentAddress ? (new QRCode)->render($paymentAddress) : includes_url( '/images/media/' ) . 'default.png';
 
 ?>
 
