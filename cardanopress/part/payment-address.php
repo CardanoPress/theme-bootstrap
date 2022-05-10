@@ -11,14 +11,7 @@
 
 use chillerlan\QRCode\QRCode;
 
-$paymentAddresses = cardanoPress()->option('payment_address');
-$connectedNetwork = cardanoPress()->userProfile()->connectedNetwork();
-
-if (! $connectedNetwork) {
-	$connectedNetwork = 'mainnet';
-}
-
-$qrCode = (new QRCode)->render($paymentAddresses[$connectedNetwork])
+$qrCode = (new QRCode)->render(cardanoPress()->paymentAddress())
 
 ?>
 
