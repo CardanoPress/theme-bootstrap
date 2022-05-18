@@ -10,19 +10,14 @@
  */
 
 if (empty($text)) {
-    if (empty($trimmedAddress)) {
-        $connectedWallet = cardanoPress()->userProfile()->connectedWallet();
-        $trimmedAddress = str_replace(['addr1', 'addr_test1'], ['', ''], $connectedWallet);
-        $trimmedAddress = substr($trimmedAddress, 0, 2) . '...' . substr($trimmedAddress, -4);
-    }
+    $favoriteHandle = cardanoPress()->userProfile()->getFavoriteHandle();
+    $trimmedAddress = cardanoPress()->userProfile()->getTrimmedAddress();
 
-    $text = 'Wallet ' . $trimmedAddress;
+    $text = 'Wallet ' . ($favoriteHandle ?: $trimmedAddress);
 }
-
 
 ?>
 
-<button @click="openDropdown = !openDropdown" class="btn btn-primary dropdown-toggle"
->
-    <?php echo $text; ?>
+<button @click="openDropdown = !openDropdown" class="btn btn-primary dropdown-toggle">
+    <span x-text="getWalletHandle('<?php echo $text; ?>')"><?php echo $text; ?></span>
 </button>
