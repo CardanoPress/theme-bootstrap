@@ -21,8 +21,6 @@ get_header();
 
 <main class="container">
     <div class="py-6">
-        <h1>Split Payments</h1>
-
         <form x-data='paymentForm' data-amount="<?php echo $fixedFee; ?>">
             <div class='py-6'>
                 <h2>Fixed Fee: <span><?php echo $fixedFee; ?></span> ADA</h2>

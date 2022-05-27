@@ -15,8 +15,6 @@ get_header();
 
 <main class="container">
     <div class="py-6">
-        <h1>Assets:</h1>
-
         <?php cardanoPress()->template('collection-list'); ?>
     </div>
 </main>
