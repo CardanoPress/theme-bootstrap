@@ -24,13 +24,13 @@ if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 				'name'             => 'CardanoPress',
 				'slug'             => 'cardanopress',
 				'required'         => true,
-				'source'           => 'https://github.com/pbwebdev/cardanopress/archive/refs/tags/v0.28.0.zip',
+				'source'           => 'https://github.com/pbwebdev/cardanopress/archive/refs/tags/v0.31.0.zip',
 				'force_activation' => true,
 			),
 			array(
 				'name'   => 'CardanoPress - Governance',
 				'slug'   => 'cardanopress-governance',
-				'source' => 'https://github.com/pbwebdev/cardanopress-governance/archive/refs/tags/v0.4.0.zip',
+				'source' => 'https://github.com/pbwebdev/cardanopress-governance/archive/refs/tags/v0.8.0.zip',
 			),
 			array(
 				'name'   => 'Augment Types',
