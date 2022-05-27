@@ -1,12 +1,12 @@
 {
-  "new_version"    : "0.4.0",
+  "new_version"    : "0.5.0",
   "homepage"       : "https://github.com/pbwebdev/cardanopress-bootstrap-theme",
-  "download_link"  : "https://github.com/pbwebdev/cardanopress-bootstrap-theme/archive/refs/tags/v0.4.0.zip",
-  "last_updated"   : "2022-05-18",
+  "download_link"  : "https://github.com/pbwebdev/cardanopress-bootstrap-theme/archive/refs/tags/v0.5.0.zip",
+  "last_updated"   : "2022-05-27",
   "author"         : "Gene Alyson Fortunado Torcende",
   "author_profile" : "https://pbwebdev.com",
   "requires"       : "5.8.0",
-  "tested"         : "5.9.3",
+  "tested"         : "6.0.0",
   "requires_php"   : "7.4",
   "sections"       : {
     "description"  : "<p>A ThemePlate project for CardanoPress Bootstrap.</p>"
