@@ -17,7 +17,7 @@ get_header();
 ?>
 
 <main class="container">
-    <div class="py-6">
+    <div class="py-5">
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, commodi voluptates praesentium quia dolore laboriosam possimus,<br>voluptatem molestiae, impedit laudantium provident. Enim cumque quibusdam adipisci? At fugiat repellendus minima magni?</p>
 
         <?php cardanoPress()->template('payment-form'); ?>

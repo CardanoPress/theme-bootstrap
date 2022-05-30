@@ -23,8 +23,8 @@ if ( empty( $heading ) ) {
 
 ?>
 
-<div class="banner">
+<div class="banner py-3">
 	<div class="container">
-		<h1><?php echo $heading; ?></h1>
+		<h1 class="mb-0"><?php echo $heading; ?></h1>
 	</div>
 </div><!-- .banner -->

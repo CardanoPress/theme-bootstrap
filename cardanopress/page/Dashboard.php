@@ -15,13 +15,13 @@ get_header();
 
 <main class="container">
     <template x-if="!isConnected">
-        <div class="py-6">
+        <div class="py-5">
             <?php cardanoPress()->template('part/modal-trigger', ['text' => 'Connect Wallet']); ?>
         </div>
     </template>
 
     <template x-if="isConnected">
-        <div class="py-6">
+        <div class="py-5">
             <?php cardanoPress()->template('welcome-banner'); ?>
 
             <?php cardanoPress()->template('part/profile-connection'); ?>

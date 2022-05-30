@@ -20,9 +20,9 @@ get_header();
 ?>
 
 <main class="container">
-    <div class="py-6">
+    <div class="py-5">
         <form x-data='paymentForm' data-amount="<?php echo $fixedFee; ?>">
-            <div class='py-6'>
+            <div class='py-3'>
                 <h2>Fixed Fee: <span><?php echo $fixedFee; ?></span> ADA</h2>
 
                 <p class='fs-5 fst-italic'>
@@ -36,7 +36,7 @@ get_header();
             </div>
 
             <template x-if='!isVerified'>
-				<div class="py-6">
+				<div class="py-3">
 					<?php cardanoPress()->template('part/payment-recaptcha'); ?>
 				</div>
 			</template>

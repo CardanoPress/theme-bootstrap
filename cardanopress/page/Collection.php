@@ -14,7 +14,7 @@ get_header();
 ?>
 
 <main class="container">
-    <div class="py-6">
+    <div class="py-5">
         <?php cardanoPress()->template('collection-list'); ?>
     </div>
 </main>
