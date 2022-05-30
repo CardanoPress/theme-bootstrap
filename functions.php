@@ -84,3 +84,47 @@ add_filter( 'get_the_archive_title', function ( $title ) {
 
     return $title;
 } );
+
+function cardanopress_bootstrap_class( string $key ): string {
+	$classes = array(
+		'content' => array(
+			'content',
+			'py-5',
+		),
+
+		'content-active-sidebar' => array(
+			'col-sm-6',
+			'col-md-7',
+			'col-lg-8',
+		),
+
+		'content-inactive-sidebar' => array(
+			'inactive-sidebar',
+			'w-100',
+		),
+
+		'sidebar' => array(
+			'sidebar',
+			'py-5',
+			'col-sm-6',
+			'col-md-5',
+			'col-lg-4',
+		),
+	);
+
+	$class_string = '';
+
+	if ( 'content' === $key ) {
+		$exta_class_key     = is_active_sidebar( 'sidebar' ) ? 'content-active-sidebar' : 'content-inactive-sidebar';
+		$classes['content'] = array_merge( $classes['content'], $classes[ $exta_class_key ] );
+	} elseif ( 'content-full' === $key ) {
+		$key                = 'content';
+		$classes['content'] = array_merge( $classes['content'], array( 'w-100' ) );
+	}
+
+	if ( array_key_exists( $key, $classes ) ) {
+		$class_string = implode( ' ', $classes[ $key ] );
+	}
+
+	return $class_string;
+}

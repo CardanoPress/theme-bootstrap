@@ -11,7 +11,8 @@ get_header();
 
 ?>
 
-	<main class="content container">
+<div class="container">
+	<main class="<?php echo cardanopress_bootstrap_class( 'content-full' ); ?>">
 
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
@@ -19,6 +20,7 @@ get_header();
 		<?php endwhile; ?>
 
 	</main><!-- .content -->
+</div>
 
 <?php
 

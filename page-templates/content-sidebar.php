@@ -11,12 +11,10 @@ get_header();
 
 ?>
 
-	<div class="content-sidebar container">
-		<main class="content">
+<div class="container">
+	<div class="content-sidebar row">
 
-			<?php if ( ! is_front_page() ) : ?>
-				<h1 class="page-title"><?php single_post_title(); ?></h1>
-			<?php endif; ?>
+		<main class="<?php echo cardanopress_bootstrap_class( 'content' ); ?>">
 
 			<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
@@ -27,7 +25,8 @@ get_header();
 
 		<?php get_sidebar(); ?>
 
-	</div><!-- .content-sidebar.container -->
+	</div><!-- .content-sidebar -->
+</div><!-- .container -->
 
 <?php
 

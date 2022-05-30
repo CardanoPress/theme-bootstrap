@@ -13,6 +13,6 @@ if ( ! is_active_sidebar( 'sidebar' ) ) {
 
 ?>
 
-<aside class="sidebar">
+<aside class="<?php echo cardanopress_bootstrap_class( 'sidebar' ); ?>">
 	<?php dynamic_sidebar( 'sidebar' ); ?>
 </aside><!-- .sidebar -->
