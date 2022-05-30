@@ -77,3 +77,10 @@ EUM_Handler::run( __FILE__, 'https://raw.githubusercontent.com/pbwebdev/cardanop
 
 add_filter( 'cp-governance-enqueue-bootstrap-style', '__return_false' );
 add_filter( 'cp-governance-enqueue-bootstrap-script', '__return_false' );
+add_filter( 'get_the_archive_title', function ( $title ) {
+    if ( is_post_type_archive( 'proposal' ) ) {
+        $title = '';
+    }
+
+    return $title;
+} );

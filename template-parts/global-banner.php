@@ -17,6 +17,10 @@ if ( is_archive() ) {
 	$heading = single_post_title( '', false );
 }
 
+if ( empty( $heading ) ) {
+	return;
+}
+
 ?>
 
 <div class="banner">
