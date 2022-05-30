@@ -14,13 +14,6 @@ if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 	function cardanopress_bootstrap_plugins() {
 		$plugins = array(
 			array(
-				'name'             => 'ThemePlate',
-				'slug'             => 'themeplate',
-				'required'         => true,
-				'source'           => 'https://github.com/kermage/ThemePlate/releases/download/v3.18.3/themeplate.zip',
-				'force_activation' => true,
-			),
-			array(
 				'name'             => 'CardanoPress',
 				'slug'             => 'cardanopress',
 				'required'         => true,

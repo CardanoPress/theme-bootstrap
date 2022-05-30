@@ -57,16 +57,6 @@ function cardanopress_bootstrap_options( $key = '', $default = false ) {
  * ==================================================
  */
 
-if ( class_exists( 'ThemePlate' ) ) :
-	ThemePlate( array(
-		'title' => 'CardanoPress Bootstrap',
-		'key'   => 'cardanopress_bootstrap',
-	) );
-	require_once 'setup/post-types.php';
-	require_once 'setup/settings.php';
-	require_once 'setup/meta-boxes.php';
-endif;
-
 require_once 'vendor/autoload.php';
 require_once 'setup/plugins.php';
 require_once 'setup/hooks.php';
