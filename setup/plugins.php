@@ -28,43 +28,7 @@ if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 			array(
 				'name'   => 'Augment Types',
 				'slug'   => 'augment-types',
-				'source' => 'https://github.com/kermage/augment-types/releases/download/v1.12.0/augment-types.zip',
-			),
-			array(
-				'name' => 'Enable Media Replace',
-				'slug' => 'enable-media-replace',
-			),
-			array(
-				'name' => 'Regenerate Thumbnails Advanced',
-				'slug' => 'regenerate-thumbnails-advanced',
-			),
-			array(
-				'name' => 'Safe SVG',
-				'slug' => 'safe-svg',
-			),
-			array(
-				'name' => 'ShortPixel Image Optimizer',
-				'slug' => 'shortpixel-image-optimiser',
-			),
-			array(
-				'name' => 'UpdraftPlus - Backup/Restore',
-				'slug' => 'updraftplus',
-			),
-			array(
-				'name' => 'W3 Total Cache',
-				'slug' => 'w3-total-cache',
-			),
-			array(
-				'name' => 'Wordfence Security',
-				'slug' => 'wordfence',
-			),
-			array(
-				'name' => 'WP Mail SMTP by WPForms',
-				'slug' => 'wp-mail-smtp',
-			),
-			array(
-				'name' => 'Yoast SEO',
-				'slug' => 'wordpress-seo',
+				'source' => 'https://github.com/kermage/augment-types/releases/download/v1.13.0/augment-types.zip',
 			),
 		);
 
