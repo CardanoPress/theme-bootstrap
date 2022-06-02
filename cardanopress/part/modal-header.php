@@ -15,7 +15,7 @@
     <h2 class="modal-title">
         <span x-text="isConnected ? 'Reconnect' : 'Connect'">Connect</span>
 
-        Wallet
+        wallet
     </h2>
 
     <button type="button" class="btn-close" aria-label="Close" @click="showModal = false">
