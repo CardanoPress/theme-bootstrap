@@ -69,6 +69,4 @@ if (empty($recaptchaKey)) {
             <?php cardanoPress()->template('part/payment-output'); ?>
         </div>
     </template>
-
-	<p>Terms and conditions text and links</p>
 </form>
