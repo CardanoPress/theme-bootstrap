@@ -28,20 +28,6 @@ if ( ! function_exists( 'cardanopress_bootstrap_widgets_init' ) ) {
 			'before_widget' => '<section class="widget %2$s">',
 			'after_widget'  => '</section>',
 		) );
-
-		$widgets = glob( CARDANOPRESS_BOOTSTRAP_THEME_PATH . 'widgets/class-*-widget.php' );
-
-		foreach ( $widgets as $widget ) {
-			$name = basename( $widget, '.php' );
-			$name = str_replace( array( 'class-', '-widget' ), array( '', '_Widget' ), $name );
-			$name = ucfirst( $name );
-
-			require_once $widget;
-
-			if ( class_exists( 'CardanoPress_Bootstrap_' . $name ) ) {
-				register_widget( 'CardanoPress_Bootstrap_' . $name );
-			}
-		}
 	}
 	add_action( 'widgets_init', 'cardanopress_bootstrap_widgets_init' );
 }
