@@ -44,34 +44,3 @@ if ( ! function_exists( 'cardanopress_bootstrap_scripts_styles_late' ) ) {
 	}
 	add_action( 'wp_enqueue_scripts', 'cardanopress_bootstrap_scripts_styles_late', 20 );
 }
-
-// Async Scripts
-if ( ! function_exists( 'cardanopress_bootstrap_async_scripts' ) ) {
-	function cardanopress_bootstrap_async_scripts( $tag, $handle ) {
-		// Add script handles
-		$scripts = array();
-
-		if ( in_array( $handle, $scripts, true ) ) {
-			return str_replace( ' src', ' async="async" src', $tag );
-		}
-
-		return $tag;
-	}
-	add_filter( 'script_loader_tag', 'cardanopress_bootstrap_async_scripts', 10, 2 );
-}
-
-// Defer Scripts
-if ( ! function_exists( 'cardanopress_bootstrap_defer_scripts' ) ) {
-	function cardanopress_bootstrap_defer_scripts( $tag, $handle ) {
-		// Add script handles
-		$scripts = array(
-		);
-
-		if ( in_array( $handle, $scripts, true ) ) {
-			return str_replace( ' src', ' defer="defer" src', $tag );
-		}
-
-		return $tag;
-	}
-	add_filter( 'script_loader_tag', 'cardanopress_bootstrap_defer_scripts', 10, 2 );
-}

@@ -37,19 +37,6 @@ if ( version_compare( PHP_VERSION, CARDANOPRESS_BOOTSTRAP_THEME_REQUIRES['PHP'],
 	return;
 }
 
-function cardanopress_bootstrap_options( $key = '', $default = false ) {
-	$options = get_option( 'cardanopress_bootstrap-options', $default );
-	$value   = $default;
-
-	if ( empty( $key ) ) {
-		$value = $options;
-	} elseif ( is_array( $options ) && array_key_exists( $key, $options ) && false !== $options[ $key ] ) {
-		$value = $options[ $key ];
-	}
-
-	return $value;
-}
-
 
 /*
  * ==================================================
@@ -59,7 +46,6 @@ function cardanopress_bootstrap_options( $key = '', $default = false ) {
 
 require_once 'vendor/autoload.php';
 require_once 'setup/plugins.php';
-require_once 'setup/hooks.php';
 require_once 'setup/features.php';
 require_once 'setup/navigations.php';
 require_once 'setup/widgets.php';
