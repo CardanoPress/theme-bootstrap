@@ -42,6 +42,10 @@ get_header();
                 <p class='fs-5 fst-italic'>
                     <?php cardanoPress()->template('part/payment-balance', ['format' => 'lovelace']); ?> Lovelace
                 </p>
+
+                <template x-if='!syncedBalance'>
+					<?php cardanoPress()->template('part/balance-sync'); ?>
+                </template>
             </div>
 
             <template x-if='!isVerified'>
