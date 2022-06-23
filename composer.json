@@ -27,6 +27,7 @@
   "prefer-stable": true,
   "require": {
     "php": "^7.4|^8.0",
+    "ext-gd": "*",
     "chillerlan/php-qrcode": "^4.3",
     "kermage/external-update-manager": "^2.2"
   },
