@@ -9,6 +9,8 @@
 
 /* generator-themeplate v1.15.1 */
 
+use chillerlan\QRCode\QRCode;
+
 // Accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -111,4 +113,21 @@ function cardanopress_bootstrap_class( string $key ): string {
 	}
 
 	return $class_string;
+}
+
+function cardanopress_bootstrap_payment_address(): string {
+	$paymentAddress = cardanoPress()->paymentAddress();
+	$defaultImage   = includes_url( '/images/media/default.png' );
+
+	if ( ! $paymentAddress ) {
+		return $defaultImage;
+	}
+
+	try {
+		$qrCode = ( new QRCode )->render( $paymentAddress );
+	} catch ( Exception $exception ) {
+		cardanoPress()->logger( 'theme' )->info( $exception->getMessage() );
+	}
+
+	return $qrCode ?? $defaultImage;
 }

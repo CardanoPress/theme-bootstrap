@@ -9,18 +9,12 @@
  * @since   0.1.0
  */
 
-use chillerlan\QRCode\QRCode;
-
-$paymentAddress = cardanoPress()->paymentAddress();
-
-$qrCode = $paymentAddress ? (new QRCode)->render($paymentAddress) : includes_url( '/images/media/' ) . 'default.png';
-
 ?>
 
 
 <div class="row">
 	<div class="col-auto">
-		<img src="<?php echo $qrCode; ?>" alt="QR Code" />
+		<img src="<?php echo cardanopress_bootstrap_payment_address(); ?>" alt="QR Code" />
 	</div>
 
 	<div class="col">
