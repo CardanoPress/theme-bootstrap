@@ -71,6 +71,7 @@ add_filter( 'get_the_archive_title', function ( $title ) {
     return $title;
 } );
 
+if ( ! function_exists( 'cardanopress_bootstrap_class' ) ) :
 function cardanopress_bootstrap_class( string $key ): string {
 	$classes = array(
 		'content' => array(
@@ -114,7 +115,9 @@ function cardanopress_bootstrap_class( string $key ): string {
 
 	return $class_string;
 }
+endif;
 
+if ( ! function_exists( 'cardanopress_bootstrap_payment_address' ) ) :
 function cardanopress_bootstrap_payment_address(): string {
 	$paymentAddress = cardanoPress()->paymentAddress();
 	$defaultImage   = includes_url( '/images/media/default.png' );
@@ -131,3 +134,4 @@ function cardanopress_bootstrap_payment_address(): string {
 
 	return $qrCode ?? $defaultImage;
 }
+endif;
