@@ -22,12 +22,12 @@ if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 			),
 			array(
 				'name'   => 'CardanoPress - Governance',
-				'slug'   => 'cardanopress-governance',
+				'slug'   => 'plugin-governance',
 				'source' => 'https://github.com/cardanopress/plugin-governance/archive/refs/tags/v0.11.0.zip',
 			),
 			array(
 				'name'   => 'CardanoPress - ISPO',
-				'slug'   => 'cardanopress-ispo',
+				'slug'   => 'plugin-ispo',
 				'source' => 'https://github.com/cardanopress/plugin-ispo/archive/refs/tags/v0.5.0.zip',
 			),
 			array(
