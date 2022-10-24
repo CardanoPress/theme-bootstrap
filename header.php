@@ -27,7 +27,13 @@
 		<header class="site-header navbar navbar-expand-xl navbar-light">
 			<nav class="container flex-wrap flex-xl-nowrap">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-brand fs-1 fw-bold">
-					<?php bloginfo( 'name' ); ?>
+					<?php
+						if ( has_custom_logo() ) {
+							the_custom_logo();
+						} else {
+							bloginfo( 'name' );
+						}
+					?>
 				</a>
 
 				<div class="d-xl-none">
