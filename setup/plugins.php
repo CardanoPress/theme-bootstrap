@@ -38,9 +38,9 @@ if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 		);
 
 		$config = array(
-			'id'           => 'cardanopress_bootstrap-tgmpa',
-			'menu'         => 'cardanopress_bootstrap-plugins',
-			'parent_slug'  => 'cardanopress_bootstrap-options',
+			'id'           => 'cardanopress-tgmpa',
+			'menu'         => 'cardanopress-plugins',
+			'parent_slug'  => 'cardanopress',
 			'dismissable'  => false,
 			'is_automatic' => true,
 		);
