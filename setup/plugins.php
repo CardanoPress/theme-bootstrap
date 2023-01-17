@@ -17,7 +17,6 @@ if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 				'name'             => 'CardanoPress',
 				'slug'             => 'cardanopress',
 				'required'         => true,
-				'source'           => 'https://github.com/cardanopress/cardanopress/archive/refs/tags/v0.40.0.zip',
 				'force_activation' => true,
 			),
 			array(
