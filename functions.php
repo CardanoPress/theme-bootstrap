@@ -135,3 +135,20 @@ function cardanopress_bootstrap_payment_address(): string {
 	return $qrCode ?? $defaultImage;
 }
 endif;
+
+add_filter( 'theme_page_templates', function( $page_templates ) {
+	if ( ! function_exists( 'cpISPO' ) ) {
+		unset( $page_templates['page-templates/ispo-countdown.php'] );
+	}
+
+	return $page_templates;
+} );
+
+
+add_filter( 'page_template_hierarchy', function( $templates ) {
+	if ( ! function_exists( 'cpISPO' ) && 'page-templates/ispo-countdown.php' === $templates[0] ) {
+		array_shift( $templates );
+	}
+
+	return $templates;
+} );
