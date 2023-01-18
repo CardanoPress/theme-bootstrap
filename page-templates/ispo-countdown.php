@@ -7,11 +7,25 @@
  * @since 0.1.0
  */
 
-use PBWebDev\CardanoPress\ISPO\Actions;
+$commence = 0;
+$conclude = 0;
+$pool     = array(
+	'name' => '',
+);
 
-$commence = cpISPO()->option('rewards_commence');
-$conclude = cpISPO()->option('rewards_conclude');
-$pool = cpISPO()->delegationPool();
+if ( ! class_exists( 'PBWebDev\CardanoPress\ISPO\Actions' ) ) {
+	class CardanoPressActions {
+		public static function __callStatic( $name, $arguments ) {
+			return 0;
+		}
+	}
+} else {
+	class_alias( 'PBWebDev\CardanoPress\ISPO\Actions', 'CardanoPressActions' );
+
+	$commence = cpISPO()->option('rewards_commence');
+	$conclude = cpISPO()->option('rewards_conclude');
+	$pool = cpISPO()->delegationPool();
+}
 
 get_header();
 
@@ -21,7 +35,7 @@ get_header();
 	<main class="<?php echo cardanopress_bootstrap_class( 'content-full' ); ?>">
 
 		<script>
-			var countDownDate = new Date( 1000 * <?php echo Actions::toUnixTimestamp( $conclude ); ?> ).getTime();
+			var countDownDate = new Date( 1000 * <?php echo CardanoPressActions::toUnixTimestamp( $conclude ); ?> ).getTime();
 
 			var x = setInterval( function() {
 				var now = new Date().getTime();
@@ -47,7 +61,7 @@ get_header();
 
 			<div class="text-center">
 				<h1><?php echo esc_html( $pool['name'] ); ?> Initial Stake Pool Offering (ISPO)</h1>
-				<p>Starts: <?php echo Actions::toUTC( $commence ); ?> UTC | Ends: <?php echo Actions::toUTC( $conclude ); ?> UTC</p>
+				<p>Starts: <?php echo CardanoPressActions::toUTC( $commence ); ?> UTC | Ends: <?php echo CardanoPressActions::toUTC( $conclude ); ?> UTC</p>
 
 				<div id="ispo-countdown" class="fw-bold fs-1"></div>
 			</div>
