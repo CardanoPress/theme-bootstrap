@@ -135,3 +135,7 @@ function cardanopress_bootstrap_payment_address(): string {
 	return $qrCode ?? $defaultImage;
 }
 endif;
+
+if ( ! class_exists( 'PBWebDev\CardanoPress\ISPO\Actions' ) ) {
+	require_once 'includes/class-ispo-compats.php';
+}
