@@ -11,23 +11,23 @@
 
 if (empty($list)) {
     $list = cardanoPress()->getPages();
-}
 
-$menuLocations = get_nav_menu_locations();
+	$menuLocations = get_nav_menu_locations();
 
-if (! empty($menuLocations['cardanopress'])) {
-	$navItems = wp_get_nav_menu_items($menuLocations['cardanopress']);
+	if (! empty($menuLocations['cardanopress'])) {
+		$navItems = wp_get_nav_menu_items($menuLocations['cardanopress']);
 
-	if ($navItems) {
-		 // removed as the last element
-		$disconnectItem = array_pop($list);
+		if ($navItems) {
+			 // removed as the last element
+			$disconnectItem = array_pop($list);
 
-		foreach ($navItems as $navItem) {
-			$list[$navItem->title] = $navItem->url;
+			foreach ($navItems as $navItem) {
+				$list[$navItem->title] = $navItem->url;
+			}
+
+	 		// add back as the last element
+			$list['Disconnect'] = $disconnectItem;
 		}
-
-		 // add back as the last element
-		$list['Disconnect'] = $disconnectItem;
 	}
 }
 
