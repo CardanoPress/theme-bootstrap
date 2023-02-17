@@ -1,8 +1,8 @@
 {
-  "new_version"    : "0.14.0",
+  "new_version"    : "0.15.0",
   "homepage"       : "https://github.com/CardanoPress/theme-bootstrap",
-  "download_link"  : "https://github.com/CardanoPress/theme-bootstrap/archive/refs/tags/v0.14.0.zip",
-  "last_updated"   : "2023-01-19",
+  "download_link"  : "https://github.com/CardanoPress/theme-bootstrap/archive/refs/tags/v0.15.0.zip",
+  "last_updated"   : "2023-02-17",
   "author"         : "Gene Alyson Fortunado Torcende",
   "author_profile" : "https://cardanopress.io",
   "requires"       : "5.8.0",
