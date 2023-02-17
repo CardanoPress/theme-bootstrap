@@ -119,8 +119,13 @@ endif;
 
 if ( ! function_exists( 'cardanopress_bootstrap_payment_address' ) ) :
 function cardanopress_bootstrap_payment_address(): string {
+	$defaultImage = includes_url( '/images/media/default.png' );
+
+	if ( ! function_exists( 'cardanoPress' ) ) {
+		return $defaultImage;
+	}
+
 	$paymentAddress = cardanoPress()->paymentAddress();
-	$defaultImage   = includes_url( '/images/media/default.png' );
 
 	if ( ! $paymentAddress ) {
 		return $defaultImage;
