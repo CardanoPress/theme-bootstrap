@@ -25,8 +25,7 @@ if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 			),
 			array(
 				'name'   => 'CardanoPress - ISPO',
-				'slug'   => 'plugin-ispo',
-				'source' => 'https://github.com/cardanopress/plugin-ispo/archive/refs/tags/v0.7.0.zip',
+				'slug'   => 'cardanopress-ispo',
 			),
 			array(
 				'name'   => 'Augment Types',
