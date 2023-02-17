@@ -14,6 +14,8 @@ if ( ! function_exists( 'cardanopress_bootstrap_navigations' ) ) {
 		register_nav_menus( array(
 			'primary' => __( 'Primary Menu', 'cardanopress-bootstrap' ),
 			'footer'  => __( 'Footer Menu', 'cardanopress-bootstrap' ),
+			// Additional menu items to be inserted before "Disconnect"
+			'cardanopress' => __( 'CardanoPress Dropdown', 'cardanopress-bootstrap' ),
 		) );
 	}
 	add_action( 'after_setup_theme', 'cardanopress_bootstrap_navigations' );

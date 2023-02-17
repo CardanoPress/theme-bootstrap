@@ -13,6 +13,19 @@ if (empty($list)) {
     $list = cardanoPress()->getPages();
 }
 
+$menuLocations = get_nav_menu_locations();
+$navItems = wp_get_nav_menu_items($menuLocations['cardanopress']);
+
+// removed as the last element
+$disconnectItem = array_pop($list);
+
+foreach ($navItems as $navItem) {
+	$list[$navItem->title] = $navItem->url;
+}
+
+// add back as the last element
+$list['Disconnect'] = $disconnectItem;
+
 ?>
 
 <?php foreach ($list as $label => $link) : ?>
