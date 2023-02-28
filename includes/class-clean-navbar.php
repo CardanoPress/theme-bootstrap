@@ -17,16 +17,20 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 				'item'     => 'nav-item',
 			);
 
-			public function link_attributes( $atts, $item, $args, $depth ) {
+			public function link_attributes( $atts, $menu_item, $args, $depth ) {
+				if ( ! $args->walker instanceof $this ) {
+					return $atts;
+				}
+
 				$atts['class'] = 'nav-link';
 
 				if ( $args->walker->has_children ) {
-					$atts['class']        .= ' dropdown-toggle';
-					$atts['data-toggle']   = 'dropdown';
-					$atts['aria-haspopup'] = 'true';
+					$atts['class']         .= ' dropdown-toggle';
+					$atts['data-bs-toggle'] = 'dropdown';
+					$atts['aria-haspopup']  = 'true';
 				}
 
-				if ( $item->current ) {
+				if ( $menu_item->current ) {
 					$atts['class'] .= ' active';
 				}
 
