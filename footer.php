@@ -18,7 +18,7 @@ $theme = wp_get_theme( CARDANOPRESS_BOOTSTRAP_THEME_BASE );
 		<footer class="site-footer py-2 bg-dark text-light">
 			<div class="container">
 				<nav class="d-flex align-items-center justify-content-between">
-					<?php cardanopress_bootstrap_footer_menu(); ?>
+					<?php cardanopress_bootstrap_footer_menu( 'nav' ); ?>
 
 					<div class="copyright">
 						<small>Copyright &copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="text-light"><?php bloginfo( 'name' ); ?></a>.</small>

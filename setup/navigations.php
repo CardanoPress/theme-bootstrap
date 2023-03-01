@@ -23,10 +23,10 @@ if ( ! function_exists( 'cardanopress_bootstrap_navigations' ) ) {
 
 // Primary Menu
 if ( ! function_exists( 'cardanopress_bootstrap_primary_menu' ) ) {
-	function cardanopress_bootstrap_primary_menu() {
+	function cardanopress_bootstrap_primary_menu( $class ) {
 		wp_nav_menu( array(
 			'theme_location' => 'primary',
-			'menu_class'     => 'navbar-nav',
+			'menu_class'     => $class,
 			'walker'         => new Clean_NavBar(),
 			'depth'          => 0,
 		) );
@@ -35,10 +35,10 @@ if ( ! function_exists( 'cardanopress_bootstrap_primary_menu' ) ) {
 
 // Footer Menu
 if ( ! function_exists( 'cardanopress_bootstrap_footer_menu' ) ) {
-	function cardanopress_bootstrap_footer_menu() {
+	function cardanopress_bootstrap_footer_menu( $class ) {
 		wp_nav_menu( array(
 			'theme_location' => 'footer',
-			'menu_class'     => 'nav',
+			'menu_class'     => $class,
 			'depth'          => 1,
 		) );
 	}

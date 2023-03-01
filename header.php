@@ -46,7 +46,7 @@
 				</button>
 
 				<div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-					<?php cardanopress_bootstrap_primary_menu(); ?>
+					<?php cardanopress_bootstrap_primary_menu( 'navbar-nav' ); ?>
 
 					<div class="d-none d-xl-block ms-xl-5">
 						<?php echo do_shortcode('[cardanopress_template name="part/modal-trigger" if="!isConnected"]'); ?>
