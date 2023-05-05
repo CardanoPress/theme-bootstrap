@@ -30,7 +30,6 @@ if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 			array(
 				'name'   => 'Augment Types',
 				'slug'   => 'augment-types',
-				'source' => 'https://github.com/kermage/augment-types/releases/download/v1.13.0/augment-types.zip',
 			),
 		);
 
@@ -38,7 +37,7 @@ if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 			'id'           => 'cardanopress-tgmpa',
 			'menu'         => 'cardanopress-plugins',
 			'parent_slug'  => 'cardanopress',
-			'dismissable'  => false,
+			'dismissable'  => true,
 			'is_automatic' => true,
 		);
 
