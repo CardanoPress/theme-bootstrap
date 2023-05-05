@@ -28,7 +28,7 @@
 
 	<div class="bg-primary mx-auto" style="width: 2px; height: 3em;"></div>
 
-    <?php if (cardanoPress()->isUserDelegated()) : ?>
+    <?php if (method_exists(cardanoPress(), 'isUserDelegated') && cardanoPress()->isUserDelegated()) : ?>
 		<div class="py-3">
             <button type='button' class="btn btn-primary" disabled='true'>Delegated</button>
 		</div>
