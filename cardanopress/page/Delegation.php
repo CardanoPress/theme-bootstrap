@@ -17,6 +17,7 @@ get_header();
 
 <main class="container">
     <div class="py-5">
+		<?php the_content(); ?>
         <?php cardanoPress()->template('pool-delegation'); ?>
     </div>
 </main>

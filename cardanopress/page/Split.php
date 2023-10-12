@@ -26,6 +26,8 @@ get_header();
 
 <main class="container">
     <div class="py-5">
+		<?php the_content(); ?>
+
         <form
             x-data="paymentForm"
             data-amount="<?php echo $fixedFee; ?>"
