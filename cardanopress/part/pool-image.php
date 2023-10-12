@@ -35,9 +35,9 @@ if (isset($pool['extended']['info']['url_png_icon_64x64'])) {
                     <div
                         role="img"
                         class="display-6 text-uppercase"
-                        aria-label="<?php echo $pool['name']; ?>"
+                        aria-label="<?php echo esc_attr($pool['name']); ?>"
                     >
-                        <?php echo $pool['name'][0]; ?>
+                        <?php echo esc_html($pool['name'][0]); ?>
                     </div>
                 </div>
             </div>

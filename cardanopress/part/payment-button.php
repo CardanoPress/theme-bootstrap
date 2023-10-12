@@ -29,7 +29,7 @@ if (empty($textNotConnected)) {
         x-bind:disabled='!isReady()'
         class="btn btn-primary"
     >
-        <?php echo $text; ?>
+        <?php echo esc_html($text); ?>
 
         <small class='d-block fst-italic' x-text="'(Connected to ' + connectedExtension + ')'"></small>
     </button>

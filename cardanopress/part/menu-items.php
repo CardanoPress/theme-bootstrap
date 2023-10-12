@@ -35,6 +35,6 @@ if (empty($list)) {
 
 <?php foreach ($list as $label => $link) : ?>
     <li>
-        <a href="<?php echo $link; ?>" class="dropdown-item"><?php echo $label; ?></a>
+        <a href="<?php echo esc_url($link); ?>" class="dropdown-item"><?php echo esc_html($label); ?></a>
     </li>
 <?php endforeach; ?>

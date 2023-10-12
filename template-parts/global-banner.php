@@ -25,6 +25,6 @@ if ( empty( $heading ) ) {
 
 <div class="banner py-3 bg-primary text-light">
 	<div class="container">
-		<h1 class="text-light mb-0"><?php echo $heading; ?></h1>
+		<h1 class="text-light mb-0"><?php echo esc_html( $heading ); ?></h1>
 	</div>
 </div><!-- .banner -->

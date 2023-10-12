@@ -19,4 +19,4 @@ if (empty($text)) {
 
 ?>
 
-<span><?php echo $text; ?></span>
+<span><?php echo esc_html($text); ?></span>

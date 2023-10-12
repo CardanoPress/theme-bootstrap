@@ -28,8 +28,8 @@ if (! $source && ! $label) {
         <?php if ($source) : ?>
 			<div class="card-img-top">
 				<img
-					src="<?php echo $source; ?>"
-					alt="<?php echo $label; ?>"
+					src="<?php echo esc_attr($source); ?>"
+					alt="<?php echo esc_attr($label); ?>"
 					class="w-100"
 				>
 			</div>
@@ -39,9 +39,9 @@ if (! $source && ! $label) {
                     <div
                         role="image"
                         class="display-1 text-uppercase"
-                        aria-label="<?php echo $label; ?>"
+                        aria-label="<?php echo esc_attr($label); ?>"
                     >
-                        <?php echo $label[0]; ?>
+                        <?php echo esc_html($label[0]); ?>
                     </div>
                 </div>
             </div>

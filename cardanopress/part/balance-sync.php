@@ -15,4 +15,4 @@ if (empty($text)) {
 
 ?>
 
-<button x-on:click.prevent='syncBalance()' class="btn btn-primary" x-bind:disabled="isProcessing"><?php echo $text; ?></button>
+<button x-on:click.prevent='syncBalance()' class="btn btn-primary" x-bind:disabled="isProcessing"><?php echo esc_html($text); ?></button>

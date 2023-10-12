@@ -23,9 +23,9 @@ if (empty($handle)) {
 		:id="$id('ada-handle')"
 		:disabled="isDisabled()"
 		x-model="selectedHandle"
-		value="<?php echo $handle; ?>"
+		value="<?php echo esc_attr($handle); ?>"
 	>
     <label class='form-check-label' :for="$id('ada-handle')">
-            <?php echo $handle; ?>
+            <?php echo esc_html($handle); ?>
     </label>
 </li>

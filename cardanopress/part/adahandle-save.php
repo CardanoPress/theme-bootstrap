@@ -16,5 +16,5 @@ if (empty($text)) {
 ?>
 
 <button x-on:click.prevent="handleSave()" x-bind:disabled="isProcessing" class="btn btn-primary">
-	<?php echo $text; ?>
+	<?php echo esc_html($text); ?>
 </button>
