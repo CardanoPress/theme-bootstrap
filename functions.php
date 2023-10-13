@@ -71,6 +71,18 @@ add_filter( 'get_the_archive_title', function ( $title ) {
     return $title;
 } );
 
+if ( ! function_exists( 'cardanopress_bootstrap_logo' ) ) :
+function cardanopress_bootstrap_logo( string $class ): void {
+	echo wp_kses_post( sprintf(
+		'<a href="%1$s" class="%2$s" rel="home"%3$s>%4$s</a>',
+		esc_url( home_url( '/' ) ),
+		$class,
+		is_front_page() && ! is_paged() ? ' aria-current="page"' : '',
+		get_bloginfo( 'name', 'display' )
+	) );
+}
+endif;
+
 if ( ! function_exists( 'cardanopress_bootstrap_class' ) ) :
 function cardanopress_bootstrap_class( string $key ): string {
 	$classes = array(

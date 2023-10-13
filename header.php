@@ -26,15 +26,13 @@
 
 		<header class="site-header navbar navbar-expand-xl navbar-light">
 			<nav class="container flex-wrap flex-xl-nowrap">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-brand fs-1 fw-bold">
-					<?php
-						if ( has_custom_logo() ) {
-							the_custom_logo();
-						} else {
-							bloginfo( 'name' );
-						}
-					?>
-				</a>
+				<?php
+					if ( has_custom_logo() ) {
+						the_custom_logo();
+					} else {
+						cardanopress_bootstrap_logo( 'navbar-brand fs-1 fw-bold' );
+					}
+				?>
 
 				<div class="d-xl-none">
 					<?php echo do_shortcode('[cardanopress_template name="part/modal-trigger" if="!isConnected"]'); ?>

@@ -23,9 +23,8 @@ if ( ! function_exists( 'cardanopress_bootstrap_setup' ) ) {
 		add_theme_support( 'title-tag' );
 		// Add theme support for site Custom Logo
 		add_theme_support( 'custom-logo', array(
-			'height'               => 100,
-			'width'                => 400,
-			'unlink-homepage-logo' => true,
+			'height' => 100,
+			'width'  => 400,
 		) );
 
 		// Add theme image sizes
