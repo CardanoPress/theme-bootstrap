@@ -10,6 +10,13 @@
 if ( ! function_exists( 'cardanopress_bootstrap_widgets_init' ) ) {
 	function cardanopress_bootstrap_widgets_init() {
 		register_sidebar( array(
+			'id'            => 'error404',
+			'name'          => __( '404 Content', 'cardanopress-bootstrap' ),
+			'description'   => __( 'Add widgets here to appear in 404 page.', 'cardanopress-bootstrap' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+		) );
+		register_sidebar( array(
 			'id'            => 'sidebar',
 			'name'          => __( 'Sidebar Area', 'cardanopress-bootstrap' ),
 			'description'   => __( 'Add widgets here to appear in sidebar.', 'cardanopress-bootstrap' ),
