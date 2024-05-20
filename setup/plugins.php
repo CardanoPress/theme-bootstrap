@@ -27,10 +27,6 @@ if ( ! function_exists( 'cardanopress_bootstrap_plugins' ) ) {
 				'name'   => 'CardanoPress - ISPO',
 				'slug'   => 'cardanopress-ispo',
 			),
-			array(
-				'name'   => 'Augment Types',
-				'slug'   => 'augment-types',
-			),
 		);
 
 		$config = array(
