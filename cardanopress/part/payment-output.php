@@ -13,5 +13,5 @@
 
 <div class='input-group'>
     <input x-bind:value="transactionHash" type="text" class="form-control" readonly disabled>
-    <button class="btn btn-outline-secondary" @click.prevent="clipboardValue(transactionHash)">Copy</button>
+    <button class="btn btn-outline-secondary" x-on:click.prevent="clipboardValue(transactionHash)">Copy</button>
 </div>

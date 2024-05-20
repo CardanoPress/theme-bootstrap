@@ -20,7 +20,7 @@
 	<div class="col-sm">
 		<div class="input-group my-3">
 			<input x-bind:value="paymentAddress" type="text" class="form-control" readonly disabled>
-			<button class="btn btn-outline-secondary" @click.prevent="clipboardValue(paymentAddress)">Copy</button>
+			<button class="btn btn-outline-secondary" x-on:click.prevent="clipboardValue(paymentAddress)">Copy</button>
 		</div>
 	</div>
 </div>

@@ -18,6 +18,6 @@ if (empty($text)) {
 
 ?>
 
-<button @click="openDropdown = !openDropdown" class="btn btn-primary dropdown-toggle">
+<button x-on:click="openDropdown = !openDropdown" class="btn btn-primary dropdown-toggle">
     <span x-text="getWalletHandle('<?php echo esc_js($text); ?>')"><?php echo esc_html($text); ?></span>
 </button>

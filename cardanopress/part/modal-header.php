@@ -18,6 +18,6 @@
         wallet
     </h2>
 
-    <button type="button" class="btn-close" aria-label="Close" @click="showModal = false">
+    <button type="button" class="btn-close" aria-label="Close" x-on:click="showModal = false">
     </button>
 </div>
