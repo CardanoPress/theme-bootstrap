@@ -1,4 +1,5 @@
 {
   "printWidth": 120,
+  "editorConfig": true,
   "singleQuote": true
 }

@@ -9,10 +9,10 @@
 
 // Number of revisions to keep
 if ( ! function_exists( 'cardanopress_bootstrap_keep_revisions' ) ) {
-	function cardanopress_bootstrap_keep_revisions( $num, $post ) {
+	function cardanopress_bootstrap_keep_revisions() {
 		return 30;
 	}
-	add_filter( 'wp_revisions_to_keep', 'cardanopress_bootstrap_keep_revisions', 10, 2 );
+	add_filter( 'wp_revisions_to_keep', 'cardanopress_bootstrap_keep_revisions' );
 }
 
 // Remove WP icon from the admin bar.
@@ -63,7 +63,7 @@ if ( ! function_exists( 'cardanopress_bootstrap_jpeg_quality' ) ) {
 
 // Custom excerpt length
 if ( ! function_exists( 'cardanopress_bootstrap_excerpt_length' ) ) {
-	function cardanopress_bootstrap_excerpt_length( $length ) {
+	function cardanopress_bootstrap_excerpt_length() {
 		return 50;
 	}
 	add_filter( 'excerpt_length', 'cardanopress_bootstrap_excerpt_length' );
@@ -71,7 +71,7 @@ if ( ! function_exists( 'cardanopress_bootstrap_excerpt_length' ) ) {
 
 // Custom excerpt read more
 if ( ! function_exists( 'cardanopress_bootstrap_excerpt_string' ) ) {
-	function cardanopress_bootstrap_excerpt_string( $more ) {
+	function cardanopress_bootstrap_excerpt_string() {
 		return '&hellip;';
 	}
 	add_filter( 'excerpt_more', 'cardanopress_bootstrap_excerpt_string' );
@@ -127,7 +127,7 @@ if ( ! function_exists( 'cardanopress_bootstrap_login_headertext' ) ) {
 
 // Set default embed size.
 if ( ! function_exists( 'cardanopress_bootstrap_embed_defaults' ) ) {
-	function cardanopress_bootstrap_embed_defaults( $attr ) {
+	function cardanopress_bootstrap_embed_defaults() {
 		return array(
 			'width'  => '1280',
 			'height' => '720',
