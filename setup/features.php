@@ -21,6 +21,10 @@ if ( ! function_exists( 'cardanopress_bootstrap_setup' ) ) {
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ) );
 		// Add theme support for document Title tag
 		add_theme_support( 'title-tag' );
+		// Add theme support for custom Editor Styles
+		add_theme_support( 'editor-styles' );
+		// Add theme support for Responsive Embeds
+		add_theme_support( 'responsive-embeds' );
 		// Add theme support for site Custom Logo
 		add_theme_support( 'custom-logo', array(
 			'height' => 100,
