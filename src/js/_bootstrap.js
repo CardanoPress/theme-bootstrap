@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.1): index.umd.js
+ * Bootstrap index.umd.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -19,16 +19,16 @@ import Toast from 'bootstrap/js/src/toast';
 import Tooltip from 'bootstrap/js/src/tooltip';
 
 export default {
-	Alert,
-	Button,
-	Carousel,
-	Collapse,
-	Dropdown,
-	Modal,
-	Offcanvas,
-	Popover,
-	ScrollSpy,
-	Tab,
-	Toast,
-	Tooltip,
-};
+  Alert,
+  Button,
+  Carousel,
+  Collapse,
+  Dropdown,
+  Modal,
+  Offcanvas,
+  Popover,
+  ScrollSpy,
+  Tab,
+  Toast,
+  Tooltip
+}

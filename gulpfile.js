@@ -90,7 +90,7 @@ gulp.task( 'imagecopy', function() {
 		.pipe( browserSync.stream() );
 } );
 
-gulp.task( 'build:images', gulp.series( 'webp', productionMode ? 'imagemin' : 'imagecopy' ) );
+gulp.task( 'build:images', gulp.series( 'webp', 'imagecopy' ) );
 
 gulp.task( 'sass', function() {
 	return gulp.src( 'src/sass/**/*.s+(a|c)ss', { since: ( file ) => betterLastRun( file, 'sass' ) } )
