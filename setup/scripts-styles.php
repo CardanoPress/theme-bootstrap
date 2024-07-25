@@ -7,6 +7,16 @@
  * @since 0.1.0
  */
 
+if ( ! function_exists( 'cardanopress_bootstrap_scripts_styles_registration' ) ) {
+	function cardanopress_bootstrap_scripts_styles_registration() {
+		$theme  = wp_get_theme( CARDANOPRESS_BOOTSTRAP_THEME_BASE );
+
+		// Google Fonts
+		wp_register_style( 'cardanopress_bootstrap-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400,600,800&display=swap', array(), $theme->get( 'Version' ) );
+	}
+	add_action( 'init', 'cardanopress_bootstrap_scripts_styles_registration' );
+}
+
 if ( ! function_exists( 'cardanopress_bootstrap_scripts_styles_early' ) ) {
 	function cardanopress_bootstrap_scripts_styles_early() {
 		$theme  = wp_get_theme( CARDANOPRESS_BOOTSTRAP_THEME_BASE );
@@ -16,7 +26,7 @@ if ( ! function_exists( 'cardanopress_bootstrap_scripts_styles_early' ) ) {
 		// jQuery
 		wp_enqueue_script( 'jquery' );
 		// Google Fonts
-		wp_enqueue_style( 'cardanopress_bootstrap-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400,600,800&display=swap', array(), $theme->get( 'Version' ) );
+		wp_enqueue_style( 'cardanopress_bootstrap-fonts' );
 	}
 	add_action( 'wp_enqueue_scripts', 'cardanopress_bootstrap_scripts_styles_early', 5 );
 }
