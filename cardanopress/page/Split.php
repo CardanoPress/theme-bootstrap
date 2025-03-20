@@ -56,7 +56,7 @@ get_header();
 				</div>
 			</template>
 
-            <table class="table" x-data="splitForm" data-fee="<?php echo esc_attr($fixedFee); ?>">
+            <table class="table" x-data="splitForm">
                 <thead>
                     <tr>
                         <th>Percentage</th>

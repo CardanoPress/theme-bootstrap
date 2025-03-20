@@ -16,7 +16,6 @@ if (empty($recaptchaKey)) {
     $recaptchaKey = $recaptchaKeys['site'] ?? '';
 }
 
-
 ?>
 
 <form
