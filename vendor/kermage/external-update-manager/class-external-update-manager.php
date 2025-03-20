@@ -9,7 +9,7 @@
  * @package External Update Manager
  * @link    https://github.com/kermage/External-Update-Manager
  * @author  Gene Alyson Fortunado Torcende
- * @version 2.2.0
+ * @version 2.6.0
  * @license GPL-3.0
  */
 
@@ -34,15 +34,25 @@ if ( ! class_exists( 'EUM_Handler' ) ) {
 
 		public static function get_latest() {
 			if ( empty( self::$versions ) ) {
-				return null;
+				return false;
 			}
 
 			return end( self::$versions );
 		}
 
 		public static function run( $path, $url, $args = array() ) {
-			$latest = str_replace( '.', '_', self::get_latest() );
+			$latest = self::get_latest();
+
+			if ( false === $latest ) {
+				return null;
+			}
+
+			$latest = str_replace( '.', '_', $latest );
 			$class  = 'External_Update_Manager_' . $latest;
+
+			if ( ! class_exists( $class ) ) {
+				return null;
+			}
 
 			return new $class( $path, $url, $args );
 		}
@@ -51,16 +61,16 @@ if ( ! class_exists( 'EUM_Handler' ) ) {
 
 }
 
-if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
+if ( ! class_exists( 'External_Update_Manager_2_6_0' ) ) {
 
-	EUM_Handler::add_version( '2.2.0' );
+	EUM_Handler::add_version( '2.6.0' );
 
 	/**
 	 * @package External Update Manager
 	 * @since   0.1.0
 	 */
 	// phpcs:ignore Generic.Files.OneObjectStructurePerFile.MultipleFound
-	class External_Update_Manager_2_2_0 {
+	class External_Update_Manager_2_6_0 {
 
 		private $update_url;
 		private $custom_arg;
@@ -71,7 +81,6 @@ if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
 		private $item_name;
 		private $transient;
 		private $item_version = '';
-		private $has_update   = false;
 
 		public function __construct( $full_path, $update_url, $custom_arg ) {
 			$this->update_url = $update_url;
@@ -82,7 +91,7 @@ if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
 			$this->transient = 'eum_' . $this->item_type . '_' . $this->item_slug;
 
 			add_filter( 'site_transient_update_' . $this->item_type . 's', array( $this, 'set_available_update' ) );
-			add_filter( 'delete_site_transient_update_' . $this->item_type . 's', array( $this, 'reset_cached_data' ) );
+			add_action( 'delete_site_transient_update_' . $this->item_type . 's', array( $this, 'reset_cached_data' ) );
 
 			if ( 'plugin' === $this->item_type ) {
 				add_filter( 'plugins_api', array( $this, 'set_plugin_info' ), 10, 3 );
@@ -145,17 +154,17 @@ if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
 			if ( version_compare( $this->item_version, $remote_data->new_version, '<' ) ) {
 				$transient->response[ $this->item_key ] = $this->format_response( $remote_data );
 
-				$this->has_update = true;
+				$transient->checked[ $this->item_key ] = $remote_data->new_version;
+			} else {
+				$transient->no_update[ $this->item_key ] = $this->format_response( $remote_data );
 			}
 
 			return $transient;
 		}
 
-		public function reset_cached_data( $transient ) {
+		public function reset_cached_data() {
 			$this->update_data = null;
 			delete_site_transient( $this->transient );
-
-			return $transient;
 		}
 
 		public function set_plugin_info( $data, $action = '', $args = null ) {
@@ -166,6 +175,10 @@ if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
 
 			$remote_data = $this->get_remote_data();
 
+			if ( ! is_object( $remote_data ) ) {
+				return $data;
+			}
+
 			return $this->format_response( $remote_data );
 		}
 
@@ -174,17 +187,18 @@ if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
 				return $meta;
 			}
 
-			if ( $this->has_update ) {
+			if ( $this->update_data ) {
 				return $meta;
 			}
 
 			$url  = 'plugin-install.php?tab=plugin-information&plugin=' . rawurlencode( $this->item_slug ) . '&TB_iframe=true';
 			$link = sprintf(
-				'<a href="%s" class="thickbox open-plugin-details-modal" aria-label="%s" data-title="%s">View details</a>',
+				'<a href="%s" class="thickbox open-plugin-details-modal" aria-label="%s" data-title="%s">%s</a>',
 				esc_url( network_admin_url( $url ) ),
 				/* translators: %s: plugin name */
 				esc_attr( sprintf( __( 'More information about %s' ), $this->item_name ) ),
-				esc_attr( $this->item_name )
+				esc_attr( $this->item_name ),
+				__( 'View details' )
 			);
 
 			$meta[] = $link;
@@ -200,8 +214,17 @@ if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
 			$data = get_site_transient( $this->transient );
 
 			if ( ! is_object( $data ) ) {
-				$data = $this->call_remote_api();
-				set_site_transient( $this->transient, $data, HOUR_IN_SECONDS );
+				$data = $this->filter( 'remote_update_data', $this->call_remote_api() );
+
+				if ( empty( $data ) ) {
+					return false;
+				}
+
+				$data = (object) $data;
+
+				$expiration = $this->filter( 'remote_data_expiration', HOUR_IN_SECONDS );
+
+				set_site_transient( $this->transient, $data, $expiration );
 			}
 
 			$this->update_data = $data;
@@ -215,9 +238,9 @@ if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
 				'timeout' => 10,
 			);
 			$options  = array_merge( $defaults, $this->custom_arg );
-			$response = wp_remote_request( $this->update_url, $options );
+			$response = wp_remote_request( $this->filter( 'api_update_url', $this->update_url ), $this->filter( 'api_request_options', $options ) );
 
-			if ( ! is_array( $response ) || is_wp_error( $response ) ) {
+			if ( is_wp_error( $response ) ) {
 				return false;
 			}
 
@@ -225,7 +248,7 @@ if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
 			$body = wp_remote_retrieve_body( $response );
 
 			if ( 200 === $code ) {
-				return json_decode( $body, false );
+				return json_decode( $body, true );
 			}
 
 			return false;
@@ -243,26 +266,35 @@ if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
 				$formatted->name    = $this->item_name;
 				$formatted->slug    = $this->item_slug;
 				$formatted->version = $formatted->new_version;
-				$formatted->package = $formatted->download_link;
+
+				if ( ! empty( $unformatted->download_link ) ) {
+					$formatted->package = $formatted->download_link;
+				}
 
 				if ( ! empty( $unformatted->author_profile ) ) {
 					$formatted->author = sprintf( '<a href="%s">%s</a>', $unformatted->author_profile, $unformatted->author );
 				}
 
 				if ( ! empty( $unformatted->sections ) ) {
-					$formatted->sections = (array) $unformatted->sections;
+					$formatted->sections = maybe_unserialize( $unformatted->sections );
+				} else {
+					$formatted->sections = array();
 				}
 
 				if ( ! empty( $unformatted->banners ) ) {
-					$formatted->banners = (array) $unformatted->banners;
+					$formatted->banners = maybe_unserialize( $unformatted->banners );
+				} else {
+					$formatted->banners = array();
 				}
 
 				if ( ! empty( $unformatted->icons ) ) {
-					$formatted->icons = (array) $unformatted->icons;
+					$formatted->icons = maybe_unserialize( $unformatted->icons );
+				} else {
+					$formatted->icons = array();
 				}
 			}
 
-			return $formatted;
+			return $this->filter( 'formatted_response', $formatted );
 		}
 
 		public function maybe_delete_transient( $upgrader = null, $hook_extra = null ) {
@@ -352,36 +384,61 @@ if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
 				$details_url  = self_admin_url( 'plugin-install.php' );
 			}
 
-			$details_url = add_query_arg( $details_args, $details_url );
+			$details_url = $this->filter(
+				'notice_details_url',
+				add_query_arg( $details_args, $details_url )
+			);
 			$update_args = array(
 				'action'         => 'upgrade-' . $this->item_type,
 				$this->item_type => rawurlencode( $this->item_key ),
 				'_wpnonce'       => wp_create_nonce( 'upgrade-' . $this->item_type . '_' . $this->item_key ),
 			);
-			$update_url  = add_query_arg( $update_args, self_admin_url( 'update.php' ) );
+			$update_url  = $this->filter(
+				'notice_update_url',
+				add_query_arg( $update_args, self_admin_url( 'update.php' ) )
+			);
 
-			/* phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped */
-			echo '<div class="notice notice-info is-dismissible eum-notice" data-eum="' . esc_attr( $this->transient ) . '"><p><strong>';
-			printf(
-				/* translators: 1: plugin name, 2: details URL, 3: additional link attributes, 4: version number, 5: update URL, 6: additional link attributes */
-				__( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.' ),
-				$this->item_name,
-				esc_url( $details_url ),
+			$details_link = $this->filter(
+				'notice_details_link',
 				sprintf(
-					'class="thickbox open-plugin-details-modal" aria-label="%s"',
+					'<a href="%s" class="thickbox open-plugin-details-modal" aria-label="%s">%s</a>',
+					esc_url( $details_url ),
 					/* translators: 1: plugin name, 2: version number */
-					esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $this->item_name, $remote_data->new_version ) )
-				),
-				$remote_data->new_version,
-				esc_url( $update_url ),
-				sprintf(
-					'class="update-link" aria-label="%s"',
+					sprintf( __( 'View %1$s version %2$s details' ), $this->item_name, $remote_data->new_version ),
 					/* translators: %s: plugin name */
-					esc_attr( sprintf( __( 'Update %s now' ), $this->item_name ) )
+					sprintf( __( 'View version %s details' ), $remote_data->new_version )
 				)
 			);
-			echo '</strong></p></div>';
-			/* phpcs:enable */
+
+			$update_link = $this->filter(
+				'notice_update_link',
+				sprintf(
+					'<a href="%s" class="update-link" aria-label="%s">%s</a>',
+					esc_url( $update_url ),
+					/* translators: 1: plugin name, 2: version number */
+					sprintf( __( 'Update %1$s to version %2$s' ), $this->item_name, $remote_data->new_version ),
+					__( 'update now' )
+				)
+			);
+
+			$message = $this->filter(
+				'notice_message',
+				sprintf(
+					/* translators: 1: plugin name, 2: action link/s */
+					__( 'There is a new version of %1$s available. %2$s.' ),
+					$this->item_name,
+					empty( $remote_data->package )
+						? $details_link
+						: sprintf(
+							/* translators: 1: view details, 2: update now */
+							__( '%1$s or %2$s' ),
+							$details_link,
+							$update_link
+						)
+				)
+			);
+
+			echo '<div class="notice notice-info is-dismissible eum-notice" data-eum="' . esc_attr( $this->transient ) . '"><p><strong>' . wp_kses_post( $message ) . '</strong></p></div>';
 		}
 
 		public function plugin_update_message( $plugin_data ) {
@@ -395,6 +452,8 @@ if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
 				return;
 			}
 
+			$nonce = wp_create_nonce( 'eum_dismiss_notice' );
+
 			ob_start();
 			?>
 
@@ -406,25 +465,33 @@ if ( ! class_exists( 'External_Update_Manager_2_2_0' ) ) {
 						data : {
 							action: 'eum_dismiss_notice',
 							name: jQuery( this ).parent().data( 'eum' ),
+							_wpnonce: '<?php echo esc_js( $nonce ); ?>',
 						},
 					});
 				});
 			</script>
 
 			<?php
-			echo ob_get_clean();
+			echo wp_kses( ob_get_clean(), array( 'script' => array() ) );
 
 			wp_cache_set( 'eum_dismiss_notice', true );
 		}
 
 		public function dismiss_notice_action() {
+			check_admin_referer( 'eum_dismiss_notice' );
+
 			$name   = sanitize_text_field( $_POST['name'] );
-			$expire = time() + HOUR_IN_SECONDS;
+			$expire = time() + $this->filter( 'dismiss_notice_expiration', HOUR_IN_SECONDS );
 			$secure = is_ssl();
 
-			setcookie( $name, true, $expire, ADMIN_COOKIE_PATH, COOKIE_DOMAIN, $secure, true );
+			setcookie( $name, 'true', $expire, ADMIN_COOKIE_PATH, COOKIE_DOMAIN, $secure, true );
 
 			wp_die();
+		}
+
+
+		private function filter( $hook_name, $args ) {
+			return apply_filters( $this->transient . '_' . $hook_name, $args );
 		}
 
 	}

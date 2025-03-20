@@ -69,7 +69,7 @@ final class Polynomial{
 	/**
 	 * Polynomial constructor.
 	 */
-	public function __construct(array $num = null, int $shift = null){
+	public function __construct(?array $num = null, ?int $shift = null){
 		$this->setNum($num ?? [1], $shift);
 	}
 
@@ -86,7 +86,7 @@ final class Polynomial{
 	 *
 	 * @return \chillerlan\QRCode\Helpers\Polynomial
 	 */
-	public function setNum(array $num, int $shift = null):Polynomial{
+	public function setNum(array $num, ?int $shift = null):Polynomial{
 		$offset = 0;
 		$numCount = count($num);
 
@@ -157,7 +157,7 @@ final class Polynomial{
 			throw new QRCodeException(sprintf('log(%s)', $n));
 		}
 
-		return Polynomial::table[$n][1];
+		return self::table[$n][1];
 	}
 
 	/**
@@ -172,7 +172,7 @@ final class Polynomial{
 			$n -= 255;
 		}
 
-		return Polynomial::table[$n][0];
+		return self::table[$n][0];
 	}
 
 }

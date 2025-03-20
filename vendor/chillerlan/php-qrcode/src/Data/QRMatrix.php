@@ -25,32 +25,71 @@ use function array_fill, array_key_exists, array_push, array_unshift, count, flo
  */
 final class QRMatrix{
 
+	/*
+	 * special values
+	 */
+
 	/** @var int */
-	public const M_NULL       = 0x00;
+	public const M_NULL             = 0x00;
 	/** @var int */
-	public const M_DARKMODULE = 0x02;
+	public const M_LOGO             = 0x14;
 	/** @var int */
-	public const M_DATA       = 0x04;
+	public const M_LOGO_DARK        = self::M_LOGO << 8;
+
+	/*
+	 * light values
+	 */
+
 	/** @var int */
-	public const M_FINDER     = 0x06;
+	public const M_DATA             = 0x04;
 	/** @var int */
-	public const M_SEPARATOR  = 0x08;
+	public const M_FINDER           = 0x06;
 	/** @var int */
-	public const M_ALIGNMENT  = 0x0a;
+	public const M_SEPARATOR        = 0x08;
 	/** @var int */
-	public const M_TIMING     = 0x0c;
+	public const M_ALIGNMENT        = 0x0a;
 	/** @var int */
-	public const M_FORMAT     = 0x0e;
+	public const M_TIMING           = 0x0c;
 	/** @var int */
-	public const M_VERSION    = 0x10;
+	public const M_FORMAT           = 0x0e;
 	/** @var int */
-	public const M_QUIETZONE  = 0x12;
+	public const M_VERSION          = 0x10;
 	/** @var int */
-	public const M_LOGO       = 0x14;
+	public const M_QUIETZONE        = 0x12;
+
+	/*
+	 * dark values
+	 */
+
 	/** @var int */
-	public const M_FINDER_DOT = 0x16;
+	public const M_DARKMODULE       = self::M_DARKMODULE_LIGHT << 8;
 	/** @var int */
-	public const M_TEST       = 0xff;
+	public const M_DATA_DARK        = self::M_DATA << 8;
+	/** @var int */
+	public const M_FINDER_DARK      = self::M_FINDER << 8;
+	/** @var int */
+	public const M_ALIGNMENT_DARK   = self::M_ALIGNMENT << 8;
+	/** @var int */
+	public const M_TIMING_DARK      = self::M_TIMING << 8;
+	/** @var int */
+	public const M_FORMAT_DARK      = self::M_FORMAT << 8;
+	/** @var int */
+	public const M_VERSION_DARK     = self::M_VERSION << 8;
+	/** @var int */
+	public const M_FINDER_DOT       = self::M_FINDER_DOT_LIGHT << 8;
+
+	/*
+	 * values used for reversed reflectance
+	 */
+
+	/** @var int */
+	public const M_DARKMODULE_LIGHT = 0x02;
+	/** @var int */
+	public const M_FINDER_DOT_LIGHT = 0x16;
+	/** @var int */
+	public const M_SEPARATOR_DARK   = self::M_SEPARATOR << 8;
+	/** @var int */
+	public const M_QUIETZONE_DARK   = self::M_QUIETZONE << 8;
 
 	/**
 	 * ISO/IEC 18004:2000 Annex E, Table E.1 - Row/column coordinates of center module of Alignment Patterns
@@ -247,7 +286,7 @@ final class QRMatrix{
 	/**
 	 * shortcut to initialize the matrix
 	 */
-	public function init(int $maskPattern, bool $test = null):QRMatrix{
+	public function init(int $maskPattern, ?bool $test = null):QRMatrix{
 		return $this
 			->setFinderPattern()
 			->setSeparators()
@@ -350,7 +389,7 @@ final class QRMatrix{
 	 * Sets the "dark module", that is always on the same position 1x1px away from the bottom left finder
 	 */
 	public function setDarkModule():QRMatrix{
-		$this->set(8, 4 * $this->version + 9, true, $this::M_DARKMODULE);
+		$this->set(8, 4 * $this->version + 9, true, $this::M_DARKMODULE_LIGHT);
 
 		return $this;
 	}
@@ -364,8 +403,8 @@ final class QRMatrix{
 
 		$pos = [
 			[0, 0], // top left
-			[$this->moduleCount - 7, 0], // bottom left
-			[0, $this->moduleCount - 7], // top right
+			[$this->moduleCount - 7, 0], // top right
+			[0, $this->moduleCount - 7], // bottom left
 		];
 
 		foreach($pos as $c){
@@ -381,7 +420,7 @@ final class QRMatrix{
 					}
 					// 3*3 dot
 					else{
-						$this->set($c[0] + $y, $c[1] + $x, true, $this::M_FINDER_DOT);
+						$this->set($c[0] + $y, $c[1] + $x, true, $this::M_FINDER_DOT_LIGHT);
 					}
 				}
 			}
@@ -477,7 +516,7 @@ final class QRMatrix{
 	 *
 	 * ISO/IEC 18004:2000 Section 8.10
 	 */
-	public function setVersionNumber(bool $test = null):QRMatrix{
+	public function setVersionNumber(?bool $test = null):QRMatrix{
 		$bits = $this::versionPattern[$this->version] ?? false;
 
 		if($bits !== false){
@@ -501,7 +540,7 @@ final class QRMatrix{
 	 *
 	 * ISO/IEC 18004:2000 Section 8.9
 	 */
-	public function setFormatInfo(int $maskPattern, bool $test = null):QRMatrix{
+	public function setFormatInfo(int $maskPattern, ?bool $test = null):QRMatrix{
 		$bits = $this::formatPattern[QRCode::ECC_MODES[$this->eclevel]][$maskPattern] ?? 0;
 
 		for($i = 0; $i < 15; $i++){
@@ -541,7 +580,7 @@ final class QRMatrix{
 	 *
 	 * @throws \chillerlan\QRCode\Data\QRCodeDataException
 	 */
-	public function setQuietZone(int $size = null):QRMatrix{
+	public function setQuietZone(?int $size = null):QRMatrix{
 
 		if($this->matrix[$this->moduleCount - 1][$this->moduleCount - 1] === $this::M_NULL){
 			throw new QRCodeDataException('use only after writing data');
@@ -588,7 +627,7 @@ final class QRMatrix{
 	 *
 	 * @throws \chillerlan\QRCode\Data\QRCodeDataException
 	 */
-	public function setLogoSpace(int $width, int $height, int $startX = null, int $startY = null):QRMatrix{
+	public function setLogoSpace(int $width, int $height, ?int $startX = null, ?int $startY = null):QRMatrix{
 
 		// for logos we operate in ECC H (30%) only
 		if($this->eclevel !== QRCode::ECC_H){
@@ -624,8 +663,8 @@ final class QRMatrix{
 		$startY = ($startY !== null ? $startY : ($length - $height) / 2) + $qz;
 
 		// clear the space
-		foreach($this->matrix as $y => $row){
-			foreach($row as $x => $val){
+		for($y = 0; $y < $this->moduleCount; $y++){
+			for($x = 0; $x < $this->moduleCount; $x++){
 				// out of bounds, skip
 				if($x < $start || $y < $start ||$x >= $end || $y >= $end){
 					continue;
