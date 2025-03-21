@@ -1,6 +1,6 @@
 /*!
  *  CardanoPress Bootstrap 0.1.0
- *  Copyright (C) 2024 Gene Alyson Fortunado Torcende
+ *  Copyright (C) 2025 Gene Alyson Fortunado Torcende
  *  Licensed under GPL-2.0-only.
  */
 
