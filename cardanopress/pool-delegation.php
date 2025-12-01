@@ -11,7 +11,7 @@
 
 ?>
 
-<div x-data="poolDelegation" class="text-center">
+<div <?php cardanoPress()->component()->poolDelegation(); ?> class="text-center">
     <div class="py-3">
 		<h1>Delegate</h1>
 
