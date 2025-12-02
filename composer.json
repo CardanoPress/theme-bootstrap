@@ -28,12 +28,12 @@
   "require": {
     "php": "^7.4|^8.0",
     "ext-gd": "*",
-    "chillerlan/php-qrcode": "^4.3",
-    "kermage/external-update-manager": "^2.2"
+    "chillerlan/php-qrcode": "^5.0",
+    "kermage/external-update-manager": "^3.0"
   },
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-    "wp-coding-standards/wpcs": "^2.2",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+    "wp-coding-standards/wpcs": "^3.3",
     "squizlabs/php_codesniffer": "^3.5",
     "phpcompatibility/phpcompatibility-wp": "^2.1"
   },

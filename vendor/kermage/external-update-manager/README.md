@@ -4,8 +4,8 @@
 *self-hosted...can't be submitted to official WordPress repository...non-GPL licensed...custom-made...commercial...etc.*
 
 ## Requirements
-* PHP 5.2.4+
-* WordPress 4.4.0+
+* PHP 7.4+
+* WordPress 5.9+
 
 ## Installation
 1. Grab the `class-external-update-manager.php` file and place it somewhere inside the theme or plugin directory
@@ -21,3 +21,5 @@ EUM_Handler::run( __FILE__, '<UPDATE URL>' );
 
 * [ThemePlate](https://github.com/kermage/ThemePlate)
 * [Augment Types](https://github.com/kermage/augment-types)
+* [CardanoPress](https://github.com/CardanoPress)
+* [CP Edge User](https://github.com/kermage/cardanopress-edge-user)

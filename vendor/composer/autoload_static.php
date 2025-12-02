@@ -4,14 +4,14 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit062c1e25b6d0a256a5e0d75360459486
+class ComposerStaticInitdbd4d4401514d7f36748db068bed3de5
 {
     public static $files = array (
         'e2fb8214a7589690aae8ec82f7aa8973' => __DIR__ . '/..' . '/kermage/external-update-manager/class-external-update-manager.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'c' => 
+        'c' =>
         array (
             'chillerlan\\Settings\\' => 20,
             'chillerlan\\QRCode\\' => 18,
@@ -19,11 +19,11 @@ class ComposerStaticInit062c1e25b6d0a256a5e0d75360459486
     );
 
     public static $prefixDirsPsr4 = array (
-        'chillerlan\\Settings\\' => 
+        'chillerlan\\Settings\\' =>
         array (
             0 => __DIR__ . '/..' . '/chillerlan/php-settings-container/src',
         ),
-        'chillerlan\\QRCode\\' => 
+        'chillerlan\\QRCode\\' =>
         array (
             0 => __DIR__ . '/..' . '/chillerlan/php-qrcode/src',
         ),
@@ -31,25 +31,64 @@ class ComposerStaticInit062c1e25b6d0a256a5e0d75360459486
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'chillerlan\\QRCode\\Common\\BitBuffer' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Common/BitBuffer.php',
+        'chillerlan\\QRCode\\Common\\ECICharset' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Common/ECICharset.php',
+        'chillerlan\\QRCode\\Common\\EccLevel' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Common/EccLevel.php',
+        'chillerlan\\QRCode\\Common\\GDLuminanceSource' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Common/GDLuminanceSource.php',
+        'chillerlan\\QRCode\\Common\\GF256' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Common/GF256.php',
+        'chillerlan\\QRCode\\Common\\GenericGFPoly' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Common/GenericGFPoly.php',
+        'chillerlan\\QRCode\\Common\\IMagickLuminanceSource' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Common/IMagickLuminanceSource.php',
+        'chillerlan\\QRCode\\Common\\LuminanceSourceAbstract' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Common/LuminanceSourceAbstract.php',
+        'chillerlan\\QRCode\\Common\\LuminanceSourceInterface' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Common/LuminanceSourceInterface.php',
+        'chillerlan\\QRCode\\Common\\MaskPattern' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Common/MaskPattern.php',
+        'chillerlan\\QRCode\\Common\\Mode' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Common/Mode.php',
+        'chillerlan\\QRCode\\Common\\Version' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Common/Version.php',
         'chillerlan\\QRCode\\Data\\AlphaNum' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/AlphaNum.php',
         'chillerlan\\QRCode\\Data\\Byte' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/Byte.php',
+        'chillerlan\\QRCode\\Data\\ECI' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/ECI.php',
+        'chillerlan\\QRCode\\Data\\Hanzi' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/Hanzi.php',
         'chillerlan\\QRCode\\Data\\Kanji' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/Kanji.php',
-        'chillerlan\\QRCode\\Data\\MaskPatternTester' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/MaskPatternTester.php',
         'chillerlan\\QRCode\\Data\\Number' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/Number.php',
         'chillerlan\\QRCode\\Data\\QRCodeDataException' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/QRCodeDataException.php',
-        'chillerlan\\QRCode\\Data\\QRDataAbstract' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/QRDataAbstract.php',
-        'chillerlan\\QRCode\\Data\\QRDataInterface' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/QRDataInterface.php',
+        'chillerlan\\QRCode\\Data\\QRData' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/QRData.php',
+        'chillerlan\\QRCode\\Data\\QRDataModeAbstract' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/QRDataModeAbstract.php',
+        'chillerlan\\QRCode\\Data\\QRDataModeInterface' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/QRDataModeInterface.php',
         'chillerlan\\QRCode\\Data\\QRMatrix' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/QRMatrix.php',
-        'chillerlan\\QRCode\\Helpers\\BitBuffer' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Helpers/BitBuffer.php',
-        'chillerlan\\QRCode\\Helpers\\Polynomial' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Helpers/Polynomial.php',
+        'chillerlan\\QRCode\\Data\\ReedSolomonEncoder' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/ReedSolomonEncoder.php',
+        'chillerlan\\QRCode\\Decoder\\Binarizer' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Decoder/Binarizer.php',
+        'chillerlan\\QRCode\\Decoder\\BitMatrix' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Decoder/BitMatrix.php',
+        'chillerlan\\QRCode\\Decoder\\Decoder' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Decoder/Decoder.php',
+        'chillerlan\\QRCode\\Decoder\\DecoderResult' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Decoder/DecoderResult.php',
+        'chillerlan\\QRCode\\Decoder\\QRCodeDecoderException' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Decoder/QRCodeDecoderException.php',
+        'chillerlan\\QRCode\\Decoder\\ReedSolomonDecoder' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Decoder/ReedSolomonDecoder.php',
+        'chillerlan\\QRCode\\Detector\\AlignmentPattern' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Detector/AlignmentPattern.php',
+        'chillerlan\\QRCode\\Detector\\AlignmentPatternFinder' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Detector/AlignmentPatternFinder.php',
+        'chillerlan\\QRCode\\Detector\\Detector' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Detector/Detector.php',
+        'chillerlan\\QRCode\\Detector\\FinderPattern' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Detector/FinderPattern.php',
+        'chillerlan\\QRCode\\Detector\\FinderPatternFinder' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Detector/FinderPatternFinder.php',
+        'chillerlan\\QRCode\\Detector\\GridSampler' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Detector/GridSampler.php',
+        'chillerlan\\QRCode\\Detector\\PerspectiveTransform' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Detector/PerspectiveTransform.php',
+        'chillerlan\\QRCode\\Detector\\QRCodeDetectorException' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Detector/QRCodeDetectorException.php',
+        'chillerlan\\QRCode\\Detector\\ResultPoint' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Detector/ResultPoint.php',
         'chillerlan\\QRCode\\Output\\QRCodeOutputException' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRCodeOutputException.php',
+        'chillerlan\\QRCode\\Output\\QREps' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QREps.php',
         'chillerlan\\QRCode\\Output\\QRFpdf' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRFpdf.php',
+        'chillerlan\\QRCode\\Output\\QRGdImage' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRGdImage.php',
+        'chillerlan\\QRCode\\Output\\QRGdImageBMP' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRGdImageBMP.php',
+        'chillerlan\\QRCode\\Output\\QRGdImageGIF' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRGdImageGIF.php',
+        'chillerlan\\QRCode\\Output\\QRGdImageJPEG' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRGdImageJPEG.php',
+        'chillerlan\\QRCode\\Output\\QRGdImagePNG' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRGdImagePNG.php',
+        'chillerlan\\QRCode\\Output\\QRGdImageWEBP' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRGdImageWEBP.php',
         'chillerlan\\QRCode\\Output\\QRImage' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRImage.php',
         'chillerlan\\QRCode\\Output\\QRImagick' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRImagick.php',
         'chillerlan\\QRCode\\Output\\QRMarkup' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRMarkup.php',
+        'chillerlan\\QRCode\\Output\\QRMarkupHTML' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRMarkupHTML.php',
+        'chillerlan\\QRCode\\Output\\QRMarkupSVG' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRMarkupSVG.php',
         'chillerlan\\QRCode\\Output\\QROutputAbstract' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QROutputAbstract.php',
         'chillerlan\\QRCode\\Output\\QROutputInterface' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QROutputInterface.php',
         'chillerlan\\QRCode\\Output\\QRString' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRString.php',
+        'chillerlan\\QRCode\\Output\\QRStringJSON' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRStringJSON.php',
+        'chillerlan\\QRCode\\Output\\QRStringText' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRStringText.php',
         'chillerlan\\QRCode\\QRCode' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/QRCode.php',
         'chillerlan\\QRCode\\QRCodeException' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/QRCodeException.php',
         'chillerlan\\QRCode\\QROptions' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/QROptions.php',
@@ -61,9 +100,9 @@ class ComposerStaticInit062c1e25b6d0a256a5e0d75360459486
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit062c1e25b6d0a256a5e0d75360459486::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit062c1e25b6d0a256a5e0d75360459486::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit062c1e25b6d0a256a5e0d75360459486::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitdbd4d4401514d7f36748db068bed3de5::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitdbd4d4401514d7f36748db068bed3de5::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitdbd4d4401514d7f36748db068bed3de5::$classMap;
 
         }, null, ClassLoader::class);
     }
