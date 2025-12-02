@@ -15,9 +15,9 @@ get_header();
 
 <main class="container">
     <div class="py-5">
-		<?php the_content(); ?>
+        <?php the_content(); ?>
 
-		<form <?php cardanoPress()->component()->paymentForm(); ?>>
+        <form <?php cardanoPress()->component()->paymentForm(); ?>>
             <div class="py-3">
                 <h2>Fixed Fee: <span x-text="payAmount"></span> ADA</h2>
 
@@ -31,15 +31,15 @@ get_header();
                 </p>
 
                 <template x-if="!syncedBalance">
-					<?php cardanoPress()->template('part/balance-sync'); ?>
+                    <?php cardanoPress()->template('part/balance-sync'); ?>
                 </template>
             </div>
 
             <template x-if="!isVerified">
-				<div class="py-3">
-					<?php cardanoPress()->template('part/payment-recaptcha'); ?>
-				</div>
-			</template>
+                <div class="py-3">
+                    <?php cardanoPress()->template('part/payment-recaptcha'); ?>
+                </div>
+            </template>
 
             <table class="table" <?php cardanoPress()->component()->splitForm(); ?>>
                 <thead>
@@ -100,31 +100,31 @@ get_header();
                     <tr>
                         <td colspan="4">
                             <h3>
-								Remaining Balance: <?php cardanoPress()->template(
-									'part/payment-balance',
-									['type' => 'remaining']
-								); ?> ADA
-							</h3>
+                                Remaining Balance: <?php cardanoPress()->template(
+                                    'part/payment-balance',
+                                    ['type' => 'remaining']
+                                ); ?> ADA
+                            </h3>
                             <p class="fs-6 fst-italic">
                                 <?php cardanoPress()->template(
-									'part/payment-balance',
-									['type' => 'remaining', 'format' => 'lovelace']
-								); ?> Lovelace
+                                    'part/payment-balance',
+                                    ['type' => 'remaining', 'format' => 'lovelace']
+                                ); ?> Lovelace
                             </p>
                             <p>
                                 <button
                                     x-on:click.prevent="handleSend('all')"
                                     x-bind:disabled="!isReady('all')"
-									class="btn btn-primary"
+                                    class="btn btn-primary"
                                 >
                                     Send All
                                 </button>
                             </p>
-							<template x-if='transactionHash'>
-								<div class="py-3">
-									<?php cardanoPress()->template('part/payment-output'); ?>
-								</div>
-							</template>
+                            <template x-if='transactionHash'>
+                                <div class="py-3">
+                                    <?php cardanoPress()->template('part/payment-output'); ?>
+                                </div>
+                            </template>
                         </td>
                     </tr>
                 </tfoot>

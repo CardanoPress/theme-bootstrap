@@ -27,13 +27,13 @@
         x-transition:leave-end="transform opacity-0 scale-75"
         x-on:click.away="showModal = false"
     >
-		<div class="modal-content">
-			<?php cardanoPress()->template('part/modal-header'); ?>
-			<?php cardanoPress()->template('part/modal-content'); ?>
-		</div>
+        <div class="modal-content">
+            <?php cardanoPress()->template('part/modal-header'); ?>
+            <?php cardanoPress()->template('part/modal-content'); ?>
+        </div>
     </div>
 </div>
 
 <template x-if="showModal">
-	<div class="modal-backdrop fade show"></div>
+    <div class="modal-backdrop fade show"></div>
 </template>
