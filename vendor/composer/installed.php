@@ -3,7 +3,7 @@
         'name' => 'cardanopress-bootstrap/cardanopress-bootstrap',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'ffe02eedd3077214ca925ba234b7f8cac950fb4d',
+        'reference' => '3a962717a5243289c224ec89b449f8168d602cb9',
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'cardanopress-bootstrap/cardanopress-bootstrap' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'ffe02eedd3077214ca925ba234b7f8cac950fb4d',
+            'reference' => '3a962717a5243289c224ec89b449f8168d602cb9',
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
