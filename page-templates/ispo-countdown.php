@@ -11,15 +11,15 @@ use PBWebDev\CardanoPress\ISPO\Actions;
 
 $commence = 0;
 $conclude = 0;
-$pool     = array(
-	'name' => '',
-);
+$pool     = array();
 
 if ( function_exists( 'cpISPO' ) ) {
 	$commence = cpISPO()->option('rewards_commence');
 	$conclude = cpISPO()->option('rewards_conclude');
 	$pool = cpISPO()->delegationPool();
 }
+
+$pool_name = (string) ( $pool['name'] ?? '' );
 
 get_header();
 
@@ -54,7 +54,7 @@ get_header();
 			<?php the_post(); ?>
 
 			<div class="text-center">
-				<h1><?php echo esc_html( $pool['name'] ); ?> Initial Stake Pool Offering (ISPO)</h1>
+				<h1><?php echo esc_html( $pool_name ); ?> Initial Stake Pool Offering (ISPO)</h1>
 				<p>Starts: <?php echo Actions::toUTC( $commence ); ?> UTC | Ends: <?php echo Actions::toUTC( $conclude ); ?> UTC</p>
 
 				<div id="ispo-countdown" class="fw-bold fs-1"></div>
