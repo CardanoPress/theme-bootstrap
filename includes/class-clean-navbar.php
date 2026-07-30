@@ -62,9 +62,13 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 			return $classes;
 		}, PHP_INT_MAX, 3 );
 
-		add_filter( 'nav_menu_item_id', function() {
+		add_filter( 'nav_menu_item_id', function( $id, $menu_item, $args ) {
+			if ( ! $args->walker instanceof Clean_Navbar ) {
+				return $id;
+			}
+
 			return '';
-		} );
+		}, PHP_INT_MAX, 3 );
 
 		add_filter( 'nav_menu_link_attributes', function( $atts, $menu_item, $args ) {
 			if ( ! $args->walker instanceof Clean_Navbar ) {
@@ -87,20 +91,24 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 		}, PHP_INT_MAX, 3 );
 
 		add_filter( 'wp_nav_menu_args', function( $args ) {
+			if ( ! isset( $args['walker'] ) || ! $args['walker'] instanceof Clean_Navbar ) {
+				return $args;
+			}
+
 			if ( 'wp_page_menu' === $args['fallback_cb'] ) {
 				$args['fallback_cb'] = function( $args ) {
 					$texts = array(
-						'Click here',
-						'to add',
-						'a menu',
+						__( 'Click here', 'cardanopress-bootstrap' ),
+						__( 'to add', 'cardanopress-bootstrap' ),
+						__( 'a menu', 'cardanopress-bootstrap' ),
 					);
 
 					$nav_menu = '<ul class="nav nav-pills"><li class="nav-item">' . implode( '</li><li class="nav-item">', array_map( function( $text ) {
-						return '<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link">' . $text . '</a>';
+						return '<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link">' . esc_html( $text ) . '</a>';
 					}, $texts ) ) . '</li></ul>';
 
 					if ( $args['echo'] ) {
-						echo $nav_menu;
+						echo $nav_menu; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					} else {
 						return $nav_menu;
 					}
