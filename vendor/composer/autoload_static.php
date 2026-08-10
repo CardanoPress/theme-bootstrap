@@ -11,7 +11,7 @@ class ComposerStaticInitdbd4d4401514d7f36748db068bed3de5
     );
 
     public static $prefixLengthsPsr4 = array (
-        'c' =>
+        'c' => 
         array (
             'chillerlan\\Settings\\' => 20,
             'chillerlan\\QRCode\\' => 18,
@@ -19,11 +19,11 @@ class ComposerStaticInitdbd4d4401514d7f36748db068bed3de5
     );
 
     public static $prefixDirsPsr4 = array (
-        'chillerlan\\Settings\\' =>
+        'chillerlan\\Settings\\' => 
         array (
             0 => __DIR__ . '/..' . '/chillerlan/php-settings-container/src',
         ),
-        'chillerlan\\QRCode\\' =>
+        'chillerlan\\QRCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/chillerlan/php-qrcode/src',
         ),

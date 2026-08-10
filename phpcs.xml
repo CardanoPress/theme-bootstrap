@@ -9,6 +9,9 @@
 	<!-- Exclude the Composer Vendor directory. -->
 	<exclude-pattern>/vendor/</exclude-pattern>
 
+	<!-- Exclude the CardanoPress overrides directory. -->
+	<exclude-pattern>/cardanopress/</exclude-pattern>
+
 	<!-- Include the WordPress ruleset. -->
 	<rule ref="WordPress-Extra"/>
 
